@@ -14,6 +14,7 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Tagging
+    # ID of the resource (read only)
     attr_accessor :tag_id
 
     attr_accessor :name
@@ -32,7 +33,7 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'tag_id' => :'IDReadOnly',
+        :'tag_id' => :'String',
         :'name' => :'String',
         :'value' => :'String'
       }
@@ -63,13 +64,28 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@tag_id.nil? && @tag_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tag_id", must conform to the pattern /^\d+$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@tag_id.nil? && @tag_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tag_id Value to be assigned
+    def tag_id=(tag_id)
+      if !tag_id.nil? && tag_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tag_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tag_id = tag_id
     end
 
     # Checks equality by comparing each attribute.

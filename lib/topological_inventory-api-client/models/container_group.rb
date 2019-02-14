@@ -14,6 +14,7 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class ContainerGroup
+    # ID of the resource (read only)
     attr_accessor :id
 
     attr_accessor :name
@@ -24,14 +25,18 @@ module TopologicalInventoryApiClient
 
     attr_accessor :source_deleted_at
 
+    # ID of the resource (read only)
     attr_accessor :container_node_id
 
+    # ID of the resource (read only)
     attr_accessor :container_project_id
 
+    # ID of the resource (read only)
     attr_accessor :source_id
 
     attr_accessor :source_ref
 
+    # ID of the resource (read only)
     attr_accessor :tenant_id
 
     attr_accessor :taggings
@@ -59,16 +64,16 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'IDReadOnly',
+        :'id' => :'String',
         :'name' => :'String',
         :'ipaddress' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
-        :'container_node_id' => :'IDReadOnly',
-        :'container_project_id' => :'IDReadOnly',
-        :'source_id' => :'IDReadOnly',
+        :'container_node_id' => :'String',
+        :'container_project_id' => :'String',
+        :'source_id' => :'String',
         :'source_ref' => :'String',
-        :'tenant_id' => :'IDReadOnly',
+        :'tenant_id' => :'String',
         :'taggings' => :'Array<Tagging>',
         :'archived_at' => :'DateTime'
       }
@@ -137,13 +142,88 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@container_node_id.nil? && @container_node_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "container_node_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@container_project_id.nil? && @container_project_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "container_project_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "source_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@container_node_id.nil? && @container_node_id !~ Regexp.new(/^\d+$/)
+      return false if !@container_project_id.nil? && @container_project_id !~ Regexp.new(/^\d+$/)
+      return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] container_node_id Value to be assigned
+    def container_node_id=(container_node_id)
+      if !container_node_id.nil? && container_node_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "container_node_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @container_node_id = container_node_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] container_project_id Value to be assigned
+    def container_project_id=(container_project_id)
+      if !container_project_id.nil? && container_project_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "container_project_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @container_project_id = container_project_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] source_id Value to be assigned
+    def source_id=(source_id)
+      if !source_id.nil? && source_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "source_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @source_id = source_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tenant_id Value to be assigned
+    def tenant_id=(tenant_id)
+      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tenant_id = tenant_id
     end
 
     # Checks equality by comparing each attribute.

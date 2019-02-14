@@ -14,14 +14,19 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Volume
+    # ID of the resource (read only)
     attr_accessor :id
 
+    # ID of the resource (read only)
     attr_accessor :tenant_id
 
+    # ID of the resource (read only)
     attr_accessor :source_id
 
+    # ID of the resource (read only)
     attr_accessor :source_region_id
 
+    # ID of the resource (read only)
     attr_accessor :volume_type_id
 
     attr_accessor :source_ref
@@ -60,11 +65,11 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'IDReadOnly',
-        :'tenant_id' => :'IDReadOnly',
-        :'source_id' => :'IDReadOnly',
-        :'source_region_id' => :'IDReadOnly',
-        :'volume_type_id' => :'IDReadOnly',
+        :'id' => :'String',
+        :'tenant_id' => :'String',
+        :'source_id' => :'String',
+        :'source_region_id' => :'String',
+        :'volume_type_id' => :'String',
         :'source_ref' => :'String',
         :'name' => :'String',
         :'state' => :'String',
@@ -136,13 +141,88 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "source_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@source_region_id.nil? && @source_region_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "source_region_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@volume_type_id.nil? && @volume_type_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "volume_type_id", must conform to the pattern /^\d+$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+      return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+      return false if !@source_region_id.nil? && @source_region_id !~ Regexp.new(/^\d+$/)
+      return false if !@volume_type_id.nil? && @volume_type_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tenant_id Value to be assigned
+    def tenant_id=(tenant_id)
+      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tenant_id = tenant_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] source_id Value to be assigned
+    def source_id=(source_id)
+      if !source_id.nil? && source_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "source_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @source_id = source_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] source_region_id Value to be assigned
+    def source_region_id=(source_region_id)
+      if !source_region_id.nil? && source_region_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "source_region_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @source_region_id = source_region_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] volume_type_id Value to be assigned
+    def volume_type_id=(volume_type_id)
+      if !volume_type_id.nil? && volume_type_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "volume_type_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @volume_type_id = volume_type_id
     end
 
     # Checks equality by comparing each attribute.

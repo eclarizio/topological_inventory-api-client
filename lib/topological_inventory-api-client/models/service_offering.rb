@@ -14,6 +14,7 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class ServiceOffering
+    # ID of the resource (read only)
     attr_accessor :id
 
     attr_accessor :name
@@ -40,10 +41,13 @@ module TopologicalInventoryApiClient
 
     attr_accessor :source_deleted_at
 
+    # ID of the resource (read only)
     attr_accessor :source_id
 
+    # ID of the resource (read only)
     attr_accessor :tenant_id
 
+    # ID of the resource (read only)
     attr_accessor :service_offering_icon_id
 
     attr_accessor :taggings
@@ -76,7 +80,7 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'IDReadOnly',
+        :'id' => :'String',
         :'name' => :'String',
         :'description' => :'String',
         :'display_name' => :'String',
@@ -88,9 +92,9 @@ module TopologicalInventoryApiClient
         :'extra' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
-        :'source_id' => :'IDReadOnly',
-        :'tenant_id' => :'IDReadOnly',
-        :'service_offering_icon_id' => :'IDReadOnly',
+        :'source_id' => :'String',
+        :'tenant_id' => :'String',
+        :'service_offering_icon_id' => :'String',
         :'taggings' => :'Array<Tagging>',
         :'archived_at' => :'DateTime'
       }
@@ -179,13 +183,73 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "source_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@service_offering_icon_id.nil? && @service_offering_icon_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "service_offering_icon_id", must conform to the pattern /^\d+$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+      return false if !@service_offering_icon_id.nil? && @service_offering_icon_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] source_id Value to be assigned
+    def source_id=(source_id)
+      if !source_id.nil? && source_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "source_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @source_id = source_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tenant_id Value to be assigned
+    def tenant_id=(tenant_id)
+      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tenant_id = tenant_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] service_offering_icon_id Value to be assigned
+    def service_offering_icon_id=(service_offering_icon_id)
+      if !service_offering_icon_id.nil? && service_offering_icon_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "service_offering_icon_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @service_offering_icon_id = service_offering_icon_id
     end
 
     # Checks equality by comparing each attribute.

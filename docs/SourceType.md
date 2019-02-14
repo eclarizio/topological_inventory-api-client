@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**IDReadOnly**](IDReadOnly.md) |  | [optional] 
+**id** | **String** | ID of the resource (read only) | [optional] 
 **name** | **String** |  | 
 **product_name** | **String** |  | 
 **vendor** | **String** |  | 
