@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**IDReadOnly**](IDReadOnly.md) |  | [optional] 
-**tenant_id** | [**IDReadOnly**](IDReadOnly.md) |  | [optional] 
+**id** | **String** | ID of the resource (read only) | [optional] 
+**tenant_id** | **String** | ID of the resource (read only) | [optional] 
 **authtype** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **resource_type** | **String** |  | [optional] 

@@ -14,8 +14,10 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Container
+    # ID of the resource (read only)
     attr_accessor :id
 
+    # ID of the resource (read only)
     attr_accessor :tenant_id
 
     attr_accessor :name
@@ -28,8 +30,10 @@ module TopologicalInventoryApiClient
 
     attr_accessor :memory_request
 
+    # ID of the resource (read only)
     attr_accessor :container_group_id
 
+    # ID of the resource (read only)
     attr_accessor :container_image_id
 
     attr_accessor :archived_at
@@ -53,15 +57,15 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'IDReadOnly',
-        :'tenant_id' => :'IDReadOnly',
+        :'id' => :'String',
+        :'tenant_id' => :'String',
         :'name' => :'String',
         :'cpu_limit' => :'Float',
         :'cpu_request' => :'Float',
         :'memory_limit' => :'Integer',
         :'memory_request' => :'Integer',
-        :'container_group_id' => :'IDReadOnly',
-        :'container_image_id' => :'IDReadOnly',
+        :'container_group_id' => :'String',
+        :'container_image_id' => :'String',
         :'archived_at' => :'DateTime'
       }
     end
@@ -119,13 +123,73 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@container_group_id.nil? && @container_group_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "container_group_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@container_image_id.nil? && @container_image_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "container_image_id", must conform to the pattern /^\d+$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+      return false if !@container_group_id.nil? && @container_group_id !~ Regexp.new(/^\d+$/)
+      return false if !@container_image_id.nil? && @container_image_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tenant_id Value to be assigned
+    def tenant_id=(tenant_id)
+      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tenant_id = tenant_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] container_group_id Value to be assigned
+    def container_group_id=(container_group_id)
+      if !container_group_id.nil? && container_group_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "container_group_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @container_group_id = container_group_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] container_image_id Value to be assigned
+    def container_image_id=(container_image_id)
+      if !container_image_id.nil? && container_image_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "container_image_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @container_image_id = container_image_id
     end
 
     # Checks equality by comparing each attribute.

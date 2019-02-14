@@ -3,9 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | [**IDReadOnly**](IDReadOnly.md) |  | [optional] 
-**tenant_id** | [**IDReadOnly**](IDReadOnly.md) |  | [optional] 
-**source_id** | [**IDReadOnly**](IDReadOnly.md) |  | [optional] 
+**id** | **String** | ID of the resource (read only) | [optional] 
+**tenant_id** | **String** | ID of the resource (read only) | [optional] 
+**source_id** | **String** | ID of the resource (read only) | [optional] 
 **source_ref** | **String** |  | [optional] 
 **name** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 

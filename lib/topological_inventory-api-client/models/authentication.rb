@@ -14,8 +14,10 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Authentication
+    # ID of the resource (read only)
     attr_accessor :id
 
+    # ID of the resource (read only)
     attr_accessor :tenant_id
 
     attr_accessor :authtype
@@ -54,8 +56,8 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'IDReadOnly',
-        :'tenant_id' => :'IDReadOnly',
+        :'id' => :'String',
+        :'tenant_id' => :'String',
         :'authtype' => :'String',
         :'name' => :'String',
         :'resource_type' => :'String',
@@ -120,6 +122,14 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
+      end
+
       if !@resource_id.nil? && @resource_id !~ Regexp.new(/^\d+$/)
         invalid_properties.push('invalid value for "resource_id", must conform to the pattern /^\d+$/.')
       end
@@ -130,8 +140,30 @@ module TopologicalInventoryApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       return false if !@resource_id.nil? && @resource_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tenant_id Value to be assigned
+    def tenant_id=(tenant_id)
+      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tenant_id = tenant_id
     end
 
     # Custom attribute writer method with validation

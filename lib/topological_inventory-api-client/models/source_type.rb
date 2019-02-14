@@ -14,6 +14,7 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class SourceType
+    # ID of the resource (read only)
     attr_accessor :id
 
     attr_accessor :name
@@ -38,7 +39,7 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'IDReadOnly',
+        :'id' => :'String',
         :'name' => :'String',
         :'product_name' => :'String',
         :'vendor' => :'String',
@@ -79,6 +80,10 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -97,10 +102,21 @@ module TopologicalInventoryApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
       return false if @name.nil?
       return false if @product_name.nil?
       return false if @vendor.nil?
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
     end
 
     # Checks equality by comparing each attribute.

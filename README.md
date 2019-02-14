@@ -185,7 +185,6 @@ Class | Method | HTTP request | Description
  - [TopologicalInventoryApiClient::EndpointsCollection](docs/EndpointsCollection.md)
  - [TopologicalInventoryApiClient::Flavor](docs/Flavor.md)
  - [TopologicalInventoryApiClient::FlavorsCollection](docs/FlavorsCollection.md)
- - [TopologicalInventoryApiClient::IDReadOnly](docs/IDReadOnly.md)
  - [TopologicalInventoryApiClient::InlineResponse200](docs/InlineResponse200.md)
  - [TopologicalInventoryApiClient::OrchestrationStack](docs/OrchestrationStack.md)
  - [TopologicalInventoryApiClient::OrchestrationStacksCollection](docs/OrchestrationStacksCollection.md)

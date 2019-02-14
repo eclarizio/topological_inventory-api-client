@@ -14,6 +14,7 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Vm
+    # ID of the resource (read only)
     attr_accessor :id
 
     attr_accessor :name
@@ -25,10 +26,12 @@ module TopologicalInventoryApiClient
 
     attr_accessor :source_deleted_at
 
+    # ID of the resource (read only)
     attr_accessor :source_id
 
     attr_accessor :source_ref
 
+    # ID of the resource (read only)
     attr_accessor :tenant_id
 
     # Cross-Source Unique Reference
@@ -44,8 +47,10 @@ module TopologicalInventoryApiClient
     # Total RAM in bytes
     attr_accessor :memory
 
+    # ID of the resource (read only)
     attr_accessor :orchestration_stack_id
 
+    # ID of the resource (read only)
     attr_accessor :flavor_id
 
     attr_accessor :taggings
@@ -78,21 +83,21 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'IDReadOnly',
+        :'id' => :'String',
         :'name' => :'String',
         :'description' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
-        :'source_id' => :'IDReadOnly',
+        :'source_id' => :'String',
         :'source_ref' => :'String',
-        :'tenant_id' => :'IDReadOnly',
+        :'tenant_id' => :'String',
         :'uid_ems' => :'String',
         :'hostname' => :'String',
         :'power_state' => :'String',
         :'cpus' => :'Integer',
         :'memory' => :'Integer',
-        :'orchestration_stack_id' => :'IDReadOnly',
-        :'flavor_id' => :'IDReadOnly',
+        :'orchestration_stack_id' => :'String',
+        :'flavor_id' => :'String',
         :'taggings' => :'Array<Tagging>',
         :'archived_at' => :'DateTime'
       }
@@ -181,13 +186,88 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "source_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@orchestration_stack_id.nil? && @orchestration_stack_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "orchestration_stack_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@flavor_id.nil? && @flavor_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "flavor_id", must conform to the pattern /^\d+$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+      return false if !@orchestration_stack_id.nil? && @orchestration_stack_id !~ Regexp.new(/^\d+$/)
+      return false if !@flavor_id.nil? && @flavor_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] source_id Value to be assigned
+    def source_id=(source_id)
+      if !source_id.nil? && source_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "source_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @source_id = source_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] tenant_id Value to be assigned
+    def tenant_id=(tenant_id)
+      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tenant_id = tenant_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] orchestration_stack_id Value to be assigned
+    def orchestration_stack_id=(orchestration_stack_id)
+      if !orchestration_stack_id.nil? && orchestration_stack_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "orchestration_stack_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @orchestration_stack_id = orchestration_stack_id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] flavor_id Value to be assigned
+    def flavor_id=(flavor_id)
+      if !flavor_id.nil? && flavor_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "flavor_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @flavor_id = flavor_id
     end
 
     # Checks equality by comparing each attribute.
