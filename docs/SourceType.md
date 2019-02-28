@@ -3,10 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ID of the resource (read only) | [optional] 
-**name** | **String** |  | 
-**product_name** | **String** |  | 
-**vendor** | **String** |  | 
-**schema** | [**Object**](.md) |  | [optional] 
+**created_at** | **DateTime** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**name** | **String** |  | [optional] 
+**product_name** | **String** |  | [optional] 
+**schema** | **String** |  | [optional] 
+**updated_at** | **DateTime** |  | [optional] 
+**vendor** | **String** |  | [optional] 
 
 

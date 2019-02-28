@@ -14,45 +14,48 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Task
-    # ID of the resource (read only)
+    attr_accessor :completed_at
+
+    attr_accessor :context
+
+    attr_accessor :created_at
+
+    # ID of the resource
     attr_accessor :id
 
     attr_accessor :name
 
-    attr_accessor :status
-
     attr_accessor :state
 
-    attr_accessor :context
+    attr_accessor :status
 
-    attr_accessor :completed_at
-
-    # ID of the resource (read only)
-    attr_accessor :tenant_id
+    attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'completed_at' => :'completed_at',
+        :'context' => :'context',
+        :'created_at' => :'created_at',
         :'id' => :'id',
         :'name' => :'name',
-        :'status' => :'status',
         :'state' => :'state',
-        :'context' => :'context',
-        :'completed_at' => :'completed_at',
-        :'tenant_id' => :'tenant_id'
+        :'status' => :'status',
+        :'updated_at' => :'updated_at'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'completed_at' => :'DateTime',
+        :'context' => :'String',
+        :'created_at' => :'DateTime',
         :'id' => :'String',
         :'name' => :'String',
-        :'status' => :'String',
         :'state' => :'String',
-        :'context' => :'Object',
-        :'completed_at' => :'DateTime',
-        :'tenant_id' => :'String'
+        :'status' => :'String',
+        :'updated_at' => :'DateTime'
       }
     end
 
@@ -64,6 +67,18 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+      if attributes.has_key?(:'completed_at')
+        self.completed_at = attributes[:'completed_at']
+      end
+
+      if attributes.has_key?(:'context')
+        self.context = attributes[:'context']
+      end
+
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
@@ -72,24 +87,16 @@ module TopologicalInventoryApiClient
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'status')
-        self.status = attributes[:'status']
-      end
-
       if attributes.has_key?(:'state')
         self.state = attributes[:'state']
       end
 
-      if attributes.has_key?(:'context')
-        self.context = attributes[:'context']
+      if attributes.has_key?(:'status')
+        self.status = attributes[:'status']
       end
 
-      if attributes.has_key?(:'completed_at')
-        self.completed_at = attributes[:'completed_at']
-      end
-
-      if attributes.has_key?(:'tenant_id')
-        self.tenant_id = attributes[:'tenant_id']
+      if attributes.has_key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
     end
 
@@ -101,10 +108,6 @@ module TopologicalInventoryApiClient
         invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
       end
 
-      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
-      end
-
       invalid_properties
     end
 
@@ -112,7 +115,6 @@ module TopologicalInventoryApiClient
     # @return true if the model is valid
     def valid?
       return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
-      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       true
     end
 
@@ -126,28 +128,19 @@ module TopologicalInventoryApiClient
       @id = id
     end
 
-    # Custom attribute writer method with validation
-    # @param [Object] tenant_id Value to be assigned
-    def tenant_id=(tenant_id)
-      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
-      end
-
-      @tenant_id = tenant_id
-    end
-
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          completed_at == o.completed_at &&
+          context == o.context &&
+          created_at == o.created_at &&
           id == o.id &&
           name == o.name &&
-          status == o.status &&
           state == o.state &&
-          context == o.context &&
-          completed_at == o.completed_at &&
-          tenant_id == o.tenant_id
+          status == o.status &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -159,7 +152,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, status, state, context, completed_at, tenant_id].hash
+      [completed_at, context, created_at, id, name, state, status, updated_at].hash
     end
 
     # Builds the object from hash

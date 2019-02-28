@@ -14,58 +14,58 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Authentication
-    # ID of the resource (read only)
-    attr_accessor :id
-
-    # ID of the resource (read only)
-    attr_accessor :tenant_id
-
     attr_accessor :authtype
+
+    # ID of the resource
+    attr_accessor :id
 
     attr_accessor :name
 
-    attr_accessor :resource_type
+    attr_accessor :password
 
     # ID of the resource
     attr_accessor :resource_id
+
+    attr_accessor :resource_type
 
     attr_accessor :status
 
     attr_accessor :status_details
 
-    attr_accessor :username
+    # ID of the resource
+    attr_accessor :tenant_id
 
-    attr_accessor :password
+    attr_accessor :username
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'tenant_id' => :'tenant_id',
         :'authtype' => :'authtype',
+        :'id' => :'id',
         :'name' => :'name',
-        :'resource_type' => :'resource_type',
+        :'password' => :'password',
         :'resource_id' => :'resource_id',
+        :'resource_type' => :'resource_type',
         :'status' => :'status',
         :'status_details' => :'status_details',
-        :'username' => :'username',
-        :'password' => :'password'
+        :'tenant_id' => :'tenant_id',
+        :'username' => :'username'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'tenant_id' => :'String',
         :'authtype' => :'String',
+        :'id' => :'String',
         :'name' => :'String',
-        :'resource_type' => :'String',
+        :'password' => :'String',
         :'resource_id' => :'String',
+        :'resource_type' => :'String',
         :'status' => :'String',
         :'status_details' => :'String',
-        :'username' => :'String',
-        :'password' => :'String'
+        :'tenant_id' => :'String',
+        :'username' => :'String'
       }
     end
 
@@ -77,28 +77,28 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'tenant_id')
-        self.tenant_id = attributes[:'tenant_id']
-      end
-
       if attributes.has_key?(:'authtype')
         self.authtype = attributes[:'authtype']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'resource_type')
-        self.resource_type = attributes[:'resource_type']
+      if attributes.has_key?(:'password')
+        self.password = attributes[:'password']
       end
 
       if attributes.has_key?(:'resource_id')
         self.resource_id = attributes[:'resource_id']
+      end
+
+      if attributes.has_key?(:'resource_type')
+        self.resource_type = attributes[:'resource_type']
       end
 
       if attributes.has_key?(:'status')
@@ -109,12 +109,12 @@ module TopologicalInventoryApiClient
         self.status_details = attributes[:'status_details']
       end
 
-      if attributes.has_key?(:'username')
-        self.username = attributes[:'username']
+      if attributes.has_key?(:'tenant_id')
+        self.tenant_id = attributes[:'tenant_id']
       end
 
-      if attributes.has_key?(:'password')
-        self.password = attributes[:'password']
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
       end
     end
 
@@ -126,12 +126,12 @@ module TopologicalInventoryApiClient
         invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
       end
 
-      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
-      end
-
       if !@resource_id.nil? && @resource_id !~ Regexp.new(/^\d+$/)
         invalid_properties.push('invalid value for "resource_id", must conform to the pattern /^\d+$/.')
+      end
+
+      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
       end
 
       invalid_properties
@@ -141,8 +141,8 @@ module TopologicalInventoryApiClient
     # @return true if the model is valid
     def valid?
       return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
-      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       return false if !@resource_id.nil? && @resource_id !~ Regexp.new(/^\d+$/)
+      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       true
     end
 
@@ -157,16 +157,6 @@ module TopologicalInventoryApiClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] tenant_id Value to be assigned
-    def tenant_id=(tenant_id)
-      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
-      end
-
-      @tenant_id = tenant_id
-    end
-
-    # Custom attribute writer method with validation
     # @param [Object] resource_id Value to be assigned
     def resource_id=(resource_id)
       if !resource_id.nil? && resource_id !~ Regexp.new(/^\d+$/)
@@ -176,21 +166,31 @@ module TopologicalInventoryApiClient
       @resource_id = resource_id
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] tenant_id Value to be assigned
+    def tenant_id=(tenant_id)
+      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @tenant_id = tenant_id
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          tenant_id == o.tenant_id &&
           authtype == o.authtype &&
+          id == o.id &&
           name == o.name &&
-          resource_type == o.resource_type &&
+          password == o.password &&
           resource_id == o.resource_id &&
+          resource_type == o.resource_type &&
           status == o.status &&
           status_details == o.status_details &&
-          username == o.username &&
-          password == o.password
+          tenant_id == o.tenant_id &&
+          username == o.username
     end
 
     # @see the `==` method
@@ -202,7 +202,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, tenant_id, authtype, name, resource_type, resource_id, status, status_details, username, password].hash
+      [authtype, id, name, password, resource_id, resource_type, status, status_details, tenant_id, username].hash
     end
 
     # Builds the object from hash

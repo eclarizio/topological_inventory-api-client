@@ -14,59 +14,62 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Container
-    # ID of the resource (read only)
-    attr_accessor :id
+    attr_accessor :archived_at
 
-    # ID of the resource (read only)
-    attr_accessor :tenant_id
+    # ID of the resource
+    attr_accessor :container_group_id
 
-    attr_accessor :name
+    # ID of the resource
+    attr_accessor :container_image_id
 
     attr_accessor :cpu_limit
 
     attr_accessor :cpu_request
 
+    attr_accessor :created_at
+
+    # ID of the resource
+    attr_accessor :id
+
     attr_accessor :memory_limit
 
     attr_accessor :memory_request
 
-    # ID of the resource (read only)
-    attr_accessor :container_group_id
+    attr_accessor :name
 
-    # ID of the resource (read only)
-    attr_accessor :container_image_id
-
-    attr_accessor :archived_at
+    attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'tenant_id' => :'tenant_id',
-        :'name' => :'name',
-        :'cpu_limit' => :'cpu_limit',
-        :'cpu_request' => :'cpu_request',
-        :'memory_limit' => :'memory_limit',
-        :'memory_request' => :'memory_request',
+        :'archived_at' => :'archived_at',
         :'container_group_id' => :'container_group_id',
         :'container_image_id' => :'container_image_id',
-        :'archived_at' => :'archived_at'
+        :'cpu_limit' => :'cpu_limit',
+        :'cpu_request' => :'cpu_request',
+        :'created_at' => :'created_at',
+        :'id' => :'id',
+        :'memory_limit' => :'memory_limit',
+        :'memory_request' => :'memory_request',
+        :'name' => :'name',
+        :'updated_at' => :'updated_at'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'tenant_id' => :'String',
-        :'name' => :'String',
-        :'cpu_limit' => :'Float',
-        :'cpu_request' => :'Float',
-        :'memory_limit' => :'Integer',
-        :'memory_request' => :'Integer',
+        :'archived_at' => :'DateTime',
         :'container_group_id' => :'String',
         :'container_image_id' => :'String',
-        :'archived_at' => :'DateTime'
+        :'cpu_limit' => :'Float',
+        :'cpu_request' => :'Float',
+        :'created_at' => :'DateTime',
+        :'id' => :'String',
+        :'memory_limit' => :'Integer',
+        :'memory_request' => :'Integer',
+        :'name' => :'String',
+        :'updated_at' => :'DateTime'
       }
     end
 
@@ -78,32 +81,8 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'tenant_id')
-        self.tenant_id = attributes[:'tenant_id']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'cpu_limit')
-        self.cpu_limit = attributes[:'cpu_limit']
-      end
-
-      if attributes.has_key?(:'cpu_request')
-        self.cpu_request = attributes[:'cpu_request']
-      end
-
-      if attributes.has_key?(:'memory_limit')
-        self.memory_limit = attributes[:'memory_limit']
-      end
-
-      if attributes.has_key?(:'memory_request')
-        self.memory_request = attributes[:'memory_request']
+      if attributes.has_key?(:'archived_at')
+        self.archived_at = attributes[:'archived_at']
       end
 
       if attributes.has_key?(:'container_group_id')
@@ -114,8 +93,36 @@ module TopologicalInventoryApiClient
         self.container_image_id = attributes[:'container_image_id']
       end
 
-      if attributes.has_key?(:'archived_at')
-        self.archived_at = attributes[:'archived_at']
+      if attributes.has_key?(:'cpu_limit')
+        self.cpu_limit = attributes[:'cpu_limit']
+      end
+
+      if attributes.has_key?(:'cpu_request')
+        self.cpu_request = attributes[:'cpu_request']
+      end
+
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'memory_limit')
+        self.memory_limit = attributes[:'memory_limit']
+      end
+
+      if attributes.has_key?(:'memory_request')
+        self.memory_request = attributes[:'memory_request']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
     end
 
@@ -123,14 +130,6 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
-      end
-
-      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
-      end
-
       if !@container_group_id.nil? && @container_group_id !~ Regexp.new(/^\d+$/)
         invalid_properties.push('invalid value for "container_group_id", must conform to the pattern /^\d+$/.')
       end
@@ -139,37 +138,20 @@ module TopologicalInventoryApiClient
         invalid_properties.push('invalid value for "container_image_id", must conform to the pattern /^\d+$/.')
       end
 
+      if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
-      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       return false if !@container_group_id.nil? && @container_group_id !~ Regexp.new(/^\d+$/)
       return false if !@container_image_id.nil? && @container_image_id !~ Regexp.new(/^\d+$/)
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
       true
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] id Value to be assigned
-    def id=(id)
-      if !id.nil? && id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
-      end
-
-      @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tenant_id Value to be assigned
-    def tenant_id=(tenant_id)
-      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
-      end
-
-      @tenant_id = tenant_id
     end
 
     # Custom attribute writer method with validation
@@ -192,21 +174,32 @@ module TopologicalInventoryApiClient
       @container_image_id = container_image_id
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "id", must conform to the pattern /^\d+$/.'
+      end
+
+      @id = id
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          tenant_id == o.tenant_id &&
-          name == o.name &&
-          cpu_limit == o.cpu_limit &&
-          cpu_request == o.cpu_request &&
-          memory_limit == o.memory_limit &&
-          memory_request == o.memory_request &&
+          archived_at == o.archived_at &&
           container_group_id == o.container_group_id &&
           container_image_id == o.container_image_id &&
-          archived_at == o.archived_at
+          cpu_limit == o.cpu_limit &&
+          cpu_request == o.cpu_request &&
+          created_at == o.created_at &&
+          id == o.id &&
+          memory_limit == o.memory_limit &&
+          memory_request == o.memory_request &&
+          name == o.name &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -218,7 +211,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, tenant_id, name, cpu_limit, cpu_request, memory_limit, memory_request, container_group_id, container_image_id, archived_at].hash
+      [archived_at, container_group_id, container_image_id, cpu_limit, cpu_request, created_at, id, memory_limit, memory_request, name, updated_at].hash
     end
 
     # Builds the object from hash

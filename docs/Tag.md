@@ -3,9 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ID of the resource (read only) | [optional] 
+**created_at** | **DateTime** |  | [optional] 
+**description** | **String** |  | [optional] 
+**id** | **String** | ID of the resource | [optional] 
 **name** | **String** |  | [optional] 
 **namespace** | **String** |  | [optional] 
-**description** | **String** |  | [optional] 
 
 

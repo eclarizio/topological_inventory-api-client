@@ -14,29 +14,35 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Source
-    # ID of the resource (read only)
-    attr_accessor :id
+    attr_accessor :created_at
 
-    # ID of the resource (read only)
-    attr_accessor :source_type_id
+    # ID of the resource
+    attr_accessor :id
 
     attr_accessor :name
 
+    # ID of the resource
+    attr_accessor :source_type_id
+
+    # ID of the resource
+    attr_accessor :tenant_id
+
     attr_accessor :uid
 
-    # ID of the resource (read only)
-    attr_accessor :tenant_id
+    attr_accessor :updated_at
 
     attr_accessor :version
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'created_at' => :'created_at',
         :'id' => :'id',
-        :'source_type_id' => :'source_type_id',
         :'name' => :'name',
-        :'uid' => :'uid',
+        :'source_type_id' => :'source_type_id',
         :'tenant_id' => :'tenant_id',
+        :'uid' => :'uid',
+        :'updated_at' => :'updated_at',
         :'version' => :'version'
       }
     end
@@ -44,11 +50,13 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'created_at' => :'DateTime',
         :'id' => :'String',
-        :'source_type_id' => :'String',
         :'name' => :'String',
-        :'uid' => :'String',
+        :'source_type_id' => :'String',
         :'tenant_id' => :'String',
+        :'uid' => :'String',
+        :'updated_at' => :'DateTime',
         :'version' => :'String'
       }
     end
@@ -61,24 +69,32 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
-      if attributes.has_key?(:'source_type_id')
-        self.source_type_id = attributes[:'source_type_id']
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'uid')
-        self.uid = attributes[:'uid']
+      if attributes.has_key?(:'source_type_id')
+        self.source_type_id = attributes[:'source_type_id']
       end
 
       if attributes.has_key?(:'tenant_id')
         self.tenant_id = attributes[:'tenant_id']
+      end
+
+      if attributes.has_key?(:'uid')
+        self.uid = attributes[:'uid']
+      end
+
+      if attributes.has_key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
 
       if attributes.has_key?(:'version')
@@ -149,11 +165,13 @@ module TopologicalInventoryApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          created_at == o.created_at &&
           id == o.id &&
-          source_type_id == o.source_type_id &&
           name == o.name &&
-          uid == o.uid &&
+          source_type_id == o.source_type_id &&
           tenant_id == o.tenant_id &&
+          uid == o.uid &&
+          updated_at == o.updated_at &&
           version == o.version
     end
 
@@ -166,7 +184,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, source_type_id, name, uid, tenant_id, version].hash
+      [created_at, id, name, source_type_id, tenant_id, uid, updated_at, version].hash
     end
 
     # Builds the object from hash

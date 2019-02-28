@@ -1,8 +1,3 @@
-if ENV['CI']
-  require 'simplecov'
-  SimpleCov.start
-end
-
 =begin
 #Topological Inventory
 

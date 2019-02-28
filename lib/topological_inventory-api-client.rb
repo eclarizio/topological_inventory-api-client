@@ -19,6 +19,8 @@ require 'topological_inventory-api-client/configuration'
 # Models
 require 'topological_inventory-api-client/models/authentication'
 require 'topological_inventory-api-client/models/authentications_collection'
+require 'topological_inventory-api-client/models/availabilities_collection'
+require 'topological_inventory-api-client/models/availability'
 require 'topological_inventory-api-client/models/collection_links'
 require 'topological_inventory-api-client/models/collection_metadata'
 require 'topological_inventory-api-client/models/container'

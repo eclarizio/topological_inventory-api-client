@@ -116,6 +116,16 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for get_documentation
+  # Return this API document in JSON format
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'get_documentation test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_authentications
   # List Authentications
   # Returns an array of Authentication objects
@@ -263,6 +273,20 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for list_endpoint_authentications
+  # List Authentications for Endpoint
+  # Returns an array of Authentication objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [AuthenticationsCollection]
+  describe 'list_endpoint_authentications test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_endpoints
   # List Endpoints
   # Returns an array of Endpoint objects
@@ -319,7 +343,9 @@ describe 'DefaultApi' do
   # List ServiceOfferingIcons
   # Returns an array of ServiceOfferingIcon objects
   # @param [Hash] opts the optional parameters
-  # @return [Array<ServiceOfferingIcon>]
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ServiceOfferingIconsCollection]
   describe 'list_service_offering_icons test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -389,6 +415,20 @@ describe 'DefaultApi' do
   # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
   # @return [ServicePlansCollection]
   describe 'list_service_plans test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_source_availabilities
+  # List Availabilities for Source
+  # Returns an array of Availability objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [AvailabilitiesCollection]
+  describe 'list_source_availabilities test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -543,6 +583,20 @@ describe 'DefaultApi' do
   # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
   # @return [ServicePlansCollection]
   describe 'list_source_service_plans test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_source_type_availabilities
+  # List Availabilities for SourceType
+  # Returns an array of Availability objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [AvailabilitiesCollection]
+  describe 'list_source_type_availabilities test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
