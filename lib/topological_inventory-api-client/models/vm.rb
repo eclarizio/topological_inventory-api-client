@@ -14,92 +14,103 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Vm
-    # ID of the resource (read only)
-    attr_accessor :id
+    attr_accessor :archived_at
 
-    attr_accessor :name
+    # Total number of CPUs
+    attr_accessor :cpus
+
+    attr_accessor :created_at
 
     # Description of the Vm
     attr_accessor :description
+
+    attr_accessor :extra
+
+    # ID of the resource
+    attr_accessor :flavor_id
+
+    attr_accessor :hostname
+
+    # ID of the resource
+    attr_accessor :id
+
+    attr_accessor :last_seen_at
+
+    # Total RAM in bytes
+    attr_accessor :memory
+
+    attr_accessor :name
+
+    # ID of the resource
+    attr_accessor :orchestration_stack_id
+
+    attr_accessor :power_state
 
     attr_accessor :source_created_at
 
     attr_accessor :source_deleted_at
 
-    # ID of the resource (read only)
+    # ID of the resource
     attr_accessor :source_id
 
     attr_accessor :source_ref
 
-    # ID of the resource (read only)
-    attr_accessor :tenant_id
+    attr_accessor :taggings
 
     # Cross-Source Unique Reference
     attr_accessor :uid_ems
 
-    attr_accessor :hostname
-
-    attr_accessor :power_state
-
-    # Total number of CPUs
-    attr_accessor :cpus
-
-    # Total RAM in bytes
-    attr_accessor :memory
-
-    # ID of the resource (read only)
-    attr_accessor :orchestration_stack_id
-
-    # ID of the resource (read only)
-    attr_accessor :flavor_id
-
-    attr_accessor :taggings
-
-    attr_accessor :archived_at
+    attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'name' => :'name',
+        :'archived_at' => :'archived_at',
+        :'cpus' => :'cpus',
+        :'created_at' => :'created_at',
         :'description' => :'description',
+        :'extra' => :'extra',
+        :'flavor_id' => :'flavor_id',
+        :'hostname' => :'hostname',
+        :'id' => :'id',
+        :'last_seen_at' => :'last_seen_at',
+        :'memory' => :'memory',
+        :'name' => :'name',
+        :'orchestration_stack_id' => :'orchestration_stack_id',
+        :'power_state' => :'power_state',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'source_id' => :'source_id',
         :'source_ref' => :'source_ref',
-        :'tenant_id' => :'tenant_id',
-        :'uid_ems' => :'uid_ems',
-        :'hostname' => :'hostname',
-        :'power_state' => :'power_state',
-        :'cpus' => :'cpus',
-        :'memory' => :'memory',
-        :'orchestration_stack_id' => :'orchestration_stack_id',
-        :'flavor_id' => :'flavor_id',
         :'taggings' => :'taggings',
-        :'archived_at' => :'archived_at'
+        :'uid_ems' => :'uid_ems',
+        :'updated_at' => :'updated_at'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'name' => :'String',
+        :'archived_at' => :'DateTime',
+        :'cpus' => :'Integer',
+        :'created_at' => :'DateTime',
         :'description' => :'String',
+        :'extra' => :'String',
+        :'flavor_id' => :'String',
+        :'hostname' => :'String',
+        :'id' => :'String',
+        :'last_seen_at' => :'DateTime',
+        :'memory' => :'Integer',
+        :'name' => :'String',
+        :'orchestration_stack_id' => :'String',
+        :'power_state' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'source_id' => :'String',
         :'source_ref' => :'String',
-        :'tenant_id' => :'String',
-        :'uid_ems' => :'String',
-        :'hostname' => :'String',
-        :'power_state' => :'String',
-        :'cpus' => :'Integer',
-        :'memory' => :'Integer',
-        :'orchestration_stack_id' => :'String',
-        :'flavor_id' => :'String',
         :'taggings' => :'Array<Tagging>',
-        :'archived_at' => :'DateTime'
+        :'uid_ems' => :'String',
+        :'updated_at' => :'DateTime'
       }
     end
 
@@ -111,16 +122,56 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+      if attributes.has_key?(:'archived_at')
+        self.archived_at = attributes[:'archived_at']
+      end
+
+      if attributes.has_key?(:'cpus')
+        self.cpus = attributes[:'cpus']
+      end
+
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'extra')
+        self.extra = attributes[:'extra']
+      end
+
+      if attributes.has_key?(:'flavor_id')
+        self.flavor_id = attributes[:'flavor_id']
+      end
+
+      if attributes.has_key?(:'hostname')
+        self.hostname = attributes[:'hostname']
+      end
+
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
+      end
+
+      if attributes.has_key?(:'last_seen_at')
+        self.last_seen_at = attributes[:'last_seen_at']
+      end
+
+      if attributes.has_key?(:'memory')
+        self.memory = attributes[:'memory']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
+      if attributes.has_key?(:'orchestration_stack_id')
+        self.orchestration_stack_id = attributes[:'orchestration_stack_id']
+      end
+
+      if attributes.has_key?(:'power_state')
+        self.power_state = attributes[:'power_state']
       end
 
       if attributes.has_key?(:'source_created_at')
@@ -139,46 +190,18 @@ module TopologicalInventoryApiClient
         self.source_ref = attributes[:'source_ref']
       end
 
-      if attributes.has_key?(:'tenant_id')
-        self.tenant_id = attributes[:'tenant_id']
-      end
-
-      if attributes.has_key?(:'uid_ems')
-        self.uid_ems = attributes[:'uid_ems']
-      end
-
-      if attributes.has_key?(:'hostname')
-        self.hostname = attributes[:'hostname']
-      end
-
-      if attributes.has_key?(:'power_state')
-        self.power_state = attributes[:'power_state']
-      end
-
-      if attributes.has_key?(:'cpus')
-        self.cpus = attributes[:'cpus']
-      end
-
-      if attributes.has_key?(:'memory')
-        self.memory = attributes[:'memory']
-      end
-
-      if attributes.has_key?(:'orchestration_stack_id')
-        self.orchestration_stack_id = attributes[:'orchestration_stack_id']
-      end
-
-      if attributes.has_key?(:'flavor_id')
-        self.flavor_id = attributes[:'flavor_id']
-      end
-
       if attributes.has_key?(:'taggings')
         if (value = attributes[:'taggings']).is_a?(Array)
           self.taggings = value
         end
       end
 
-      if attributes.has_key?(:'archived_at')
-        self.archived_at = attributes[:'archived_at']
+      if attributes.has_key?(:'uid_ems')
+        self.uid_ems = attributes[:'uid_ems']
+      end
+
+      if attributes.has_key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
     end
 
@@ -186,24 +209,20 @@ module TopologicalInventoryApiClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@flavor_id.nil? && @flavor_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "flavor_id", must conform to the pattern /^\d+$/.')
+      end
+
       if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
         invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
-      end
-
-      if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "source_id", must conform to the pattern /^\d+$/.')
-      end
-
-      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
       end
 
       if !@orchestration_stack_id.nil? && @orchestration_stack_id !~ Regexp.new(/^\d+$/)
         invalid_properties.push('invalid value for "orchestration_stack_id", must conform to the pattern /^\d+$/.')
       end
 
-      if !@flavor_id.nil? && @flavor_id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "flavor_id", must conform to the pattern /^\d+$/.')
+      if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
+        invalid_properties.push('invalid value for "source_id", must conform to the pattern /^\d+$/.')
       end
 
       invalid_properties
@@ -212,12 +231,21 @@ module TopologicalInventoryApiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
-      return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
-      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
-      return false if !@orchestration_stack_id.nil? && @orchestration_stack_id !~ Regexp.new(/^\d+$/)
       return false if !@flavor_id.nil? && @flavor_id !~ Regexp.new(/^\d+$/)
+      return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
+      return false if !@orchestration_stack_id.nil? && @orchestration_stack_id !~ Regexp.new(/^\d+$/)
+      return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] flavor_id Value to be assigned
+    def flavor_id=(flavor_id)
+      if !flavor_id.nil? && flavor_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "flavor_id", must conform to the pattern /^\d+$/.'
+      end
+
+      @flavor_id = flavor_id
     end
 
     # Custom attribute writer method with validation
@@ -231,26 +259,6 @@ module TopologicalInventoryApiClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] source_id Value to be assigned
-    def source_id=(source_id)
-      if !source_id.nil? && source_id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "source_id", must conform to the pattern /^\d+$/.'
-      end
-
-      @source_id = source_id
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tenant_id Value to be assigned
-    def tenant_id=(tenant_id)
-      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
-      end
-
-      @tenant_id = tenant_id
-    end
-
-    # Custom attribute writer method with validation
     # @param [Object] orchestration_stack_id Value to be assigned
     def orchestration_stack_id=(orchestration_stack_id)
       if !orchestration_stack_id.nil? && orchestration_stack_id !~ Regexp.new(/^\d+$/)
@@ -261,13 +269,13 @@ module TopologicalInventoryApiClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] flavor_id Value to be assigned
-    def flavor_id=(flavor_id)
-      if !flavor_id.nil? && flavor_id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "flavor_id", must conform to the pattern /^\d+$/.'
+    # @param [Object] source_id Value to be assigned
+    def source_id=(source_id)
+      if !source_id.nil? && source_id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, 'invalid value for "source_id", must conform to the pattern /^\d+$/.'
       end
 
-      @flavor_id = flavor_id
+      @source_id = source_id
     end
 
     # Checks equality by comparing each attribute.
@@ -275,23 +283,26 @@ module TopologicalInventoryApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          name == o.name &&
+          archived_at == o.archived_at &&
+          cpus == o.cpus &&
+          created_at == o.created_at &&
           description == o.description &&
+          extra == o.extra &&
+          flavor_id == o.flavor_id &&
+          hostname == o.hostname &&
+          id == o.id &&
+          last_seen_at == o.last_seen_at &&
+          memory == o.memory &&
+          name == o.name &&
+          orchestration_stack_id == o.orchestration_stack_id &&
+          power_state == o.power_state &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           source_id == o.source_id &&
           source_ref == o.source_ref &&
-          tenant_id == o.tenant_id &&
-          uid_ems == o.uid_ems &&
-          hostname == o.hostname &&
-          power_state == o.power_state &&
-          cpus == o.cpus &&
-          memory == o.memory &&
-          orchestration_stack_id == o.orchestration_stack_id &&
-          flavor_id == o.flavor_id &&
           taggings == o.taggings &&
-          archived_at == o.archived_at
+          uid_ems == o.uid_ems &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -303,7 +314,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, description, source_created_at, source_deleted_at, source_id, source_ref, tenant_id, uid_ems, hostname, power_state, cpus, memory, orchestration_stack_id, flavor_id, taggings, archived_at].hash
+      [archived_at, cpus, created_at, description, extra, flavor_id, hostname, id, last_seen_at, memory, name, orchestration_stack_id, power_state, source_created_at, source_deleted_at, source_id, source_ref, taggings, uid_ems, updated_at].hash
     end
 
     # Builds the object from hash

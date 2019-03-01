@@ -14,13 +14,18 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Endpoint
-    # ID of the resource (read only)
-    attr_accessor :id
+    # Optional X.509 Certificate Authority
+    attr_accessor :certificate_authority
+
+    attr_accessor :created_at
 
     attr_accessor :default
 
     # URI host component
     attr_accessor :host
+
+    # ID of the resource
+    attr_accessor :id
 
     # URI path component
     attr_accessor :path
@@ -33,49 +38,52 @@ module TopologicalInventoryApiClient
     # URI scheme component
     attr_accessor :scheme
 
-    # ID of the resource (read only)
+    # ID of the resource
     attr_accessor :source_id
 
-    # ID of the resource (read only)
+    # ID of the resource
     attr_accessor :tenant_id
+
+    attr_accessor :updated_at
 
     # Should SSL be verified
     attr_accessor :verify_ssl
 
-    # Optional X.509 Certificate Authority
-    attr_accessor :certificate_authority
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
+        :'certificate_authority' => :'certificate_authority',
+        :'created_at' => :'created_at',
         :'default' => :'default',
         :'host' => :'host',
+        :'id' => :'id',
         :'path' => :'path',
         :'port' => :'port',
         :'role' => :'role',
         :'scheme' => :'scheme',
         :'source_id' => :'source_id',
         :'tenant_id' => :'tenant_id',
-        :'verify_ssl' => :'verify_ssl',
-        :'certificate_authority' => :'certificate_authority'
+        :'updated_at' => :'updated_at',
+        :'verify_ssl' => :'verify_ssl'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
+        :'certificate_authority' => :'String',
+        :'created_at' => :'DateTime',
         :'default' => :'BOOLEAN',
         :'host' => :'String',
+        :'id' => :'String',
         :'path' => :'String',
         :'port' => :'Integer',
         :'role' => :'String',
         :'scheme' => :'String',
         :'source_id' => :'String',
         :'tenant_id' => :'String',
-        :'verify_ssl' => :'BOOLEAN',
-        :'certificate_authority' => :'String'
+        :'updated_at' => :'DateTime',
+        :'verify_ssl' => :'BOOLEAN'
       }
     end
 
@@ -87,8 +95,12 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
+      if attributes.has_key?(:'certificate_authority')
+        self.certificate_authority = attributes[:'certificate_authority']
+      end
+
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
       end
 
       if attributes.has_key?(:'default')
@@ -97,6 +109,10 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'host')
         self.host = attributes[:'host']
+      end
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
       end
 
       if attributes.has_key?(:'path')
@@ -123,12 +139,12 @@ module TopologicalInventoryApiClient
         self.tenant_id = attributes[:'tenant_id']
       end
 
-      if attributes.has_key?(:'verify_ssl')
-        self.verify_ssl = attributes[:'verify_ssl']
+      if attributes.has_key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
 
-      if attributes.has_key?(:'certificate_authority')
-        self.certificate_authority = attributes[:'certificate_authority']
+      if attributes.has_key?(:'verify_ssl')
+        self.verify_ssl = attributes[:'verify_ssl']
       end
     end
 
@@ -138,14 +154,6 @@ module TopologicalInventoryApiClient
       invalid_properties = Array.new
       if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
         invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
-      end
-
-      if !@port.nil? && @port > 65534
-        invalid_properties.push('invalid value for "port", must be smaller than or equal to 65534.')
-      end
-
-      if !@port.nil? && @port < 0
-        invalid_properties.push('invalid value for "port", must be greater than or equal to 0.')
       end
 
       if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
@@ -163,8 +171,6 @@ module TopologicalInventoryApiClient
     # @return true if the model is valid
     def valid?
       return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
-      return false if !@port.nil? && @port > 65534
-      return false if !@port.nil? && @port < 0
       return false if !@source_id.nil? && @source_id !~ Regexp.new(/^\d+$/)
       return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       true
@@ -178,20 +184,6 @@ module TopologicalInventoryApiClient
       end
 
       @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] port Value to be assigned
-    def port=(port)
-      if !port.nil? && port > 65534
-        fail ArgumentError, 'invalid value for "port", must be smaller than or equal to 65534.'
-      end
-
-      if !port.nil? && port < 0
-        fail ArgumentError, 'invalid value for "port", must be greater than or equal to 0.'
-      end
-
-      @port = port
     end
 
     # Custom attribute writer method with validation
@@ -219,17 +211,19 @@ module TopologicalInventoryApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
+          certificate_authority == o.certificate_authority &&
+          created_at == o.created_at &&
           default == o.default &&
           host == o.host &&
+          id == o.id &&
           path == o.path &&
           port == o.port &&
           role == o.role &&
           scheme == o.scheme &&
           source_id == o.source_id &&
           tenant_id == o.tenant_id &&
-          verify_ssl == o.verify_ssl &&
-          certificate_authority == o.certificate_authority
+          updated_at == o.updated_at &&
+          verify_ssl == o.verify_ssl
     end
 
     # @see the `==` method
@@ -241,7 +235,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, default, host, path, port, role, scheme, source_id, tenant_id, verify_ssl, certificate_authority].hash
+      [certificate_authority, created_at, default, host, id, path, port, role, scheme, source_id, tenant_id, updated_at, verify_ssl].hash
     end
 
     # Builds the object from hash

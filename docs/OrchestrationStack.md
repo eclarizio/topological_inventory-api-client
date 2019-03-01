@@ -3,14 +3,16 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** | ID of the resource (read only) | [optional] 
-**name** | **String** |  | [optional] 
+**archived_at** | **DateTime** |  | [optional] 
+**created_at** | **DateTime** |  | [optional] 
 **description** | **String** | Description of the OrchestrationStack | [optional] 
+**id** | **String** | ID of the resource | [optional] 
+**last_seen_at** | **DateTime** |  | [optional] 
+**name** | **String** |  | [optional] 
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
-**source_id** | **String** | ID of the resource (read only) | [optional] 
+**source_id** | **String** | ID of the resource | [optional] 
 **source_ref** | **String** |  | [optional] 
-**tenant_id** | **String** | ID of the resource (read only) | [optional] 
-**archived_at** | **DateTime** |  | [optional] 
+**updated_at** | **DateTime** |  | [optional] 
 
 

@@ -14,7 +14,7 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Tagging
-    # ID of the resource (read only)
+    # ID of the resource
     attr_accessor :tag_id
 
     attr_accessor :name

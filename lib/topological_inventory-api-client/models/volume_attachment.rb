@@ -14,43 +14,38 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class VolumeAttachment
-    # ID of the resource (read only)
-    attr_accessor :id
-
-    # ID of the resource (read only)
-    attr_accessor :tenant_id
-
-    # ID of the resource (read only)
-    attr_accessor :vm_id
-
-    # ID of the resource (read only)
-    attr_accessor :volume_id
-
     attr_accessor :device
 
+    # ID of the resource
+    attr_accessor :id
+
     attr_accessor :state
+
+    # ID of the resource
+    attr_accessor :vm_id
+
+    # ID of the resource
+    attr_accessor :volume_id
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
-        :'tenant_id' => :'tenant_id',
-        :'vm_id' => :'vm_id',
-        :'volume_id' => :'volume_id',
         :'device' => :'device',
-        :'state' => :'state'
+        :'id' => :'id',
+        :'state' => :'state',
+        :'vm_id' => :'vm_id',
+        :'volume_id' => :'volume_id'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'id' => :'String',
-        :'tenant_id' => :'String',
-        :'vm_id' => :'String',
-        :'volume_id' => :'String',
         :'device' => :'String',
-        :'state' => :'String'
+        :'id' => :'String',
+        :'state' => :'String',
+        :'vm_id' => :'String',
+        :'volume_id' => :'String'
       }
     end
 
@@ -62,12 +57,16 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+      if attributes.has_key?(:'device')
+        self.device = attributes[:'device']
+      end
+
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'tenant_id')
-        self.tenant_id = attributes[:'tenant_id']
+      if attributes.has_key?(:'state')
+        self.state = attributes[:'state']
       end
 
       if attributes.has_key?(:'vm_id')
@@ -77,14 +76,6 @@ module TopologicalInventoryApiClient
       if attributes.has_key?(:'volume_id')
         self.volume_id = attributes[:'volume_id']
       end
-
-      if attributes.has_key?(:'device')
-        self.device = attributes[:'device']
-      end
-
-      if attributes.has_key?(:'state')
-        self.state = attributes[:'state']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -93,10 +84,6 @@ module TopologicalInventoryApiClient
       invalid_properties = Array.new
       if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
         invalid_properties.push('invalid value for "id", must conform to the pattern /^\d+$/.')
-      end
-
-      if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
-        invalid_properties.push('invalid value for "tenant_id", must conform to the pattern /^\d+$/.')
       end
 
       if !@vm_id.nil? && @vm_id !~ Regexp.new(/^\d+$/)
@@ -114,7 +101,6 @@ module TopologicalInventoryApiClient
     # @return true if the model is valid
     def valid?
       return false if !@id.nil? && @id !~ Regexp.new(/^\d+$/)
-      return false if !@tenant_id.nil? && @tenant_id !~ Regexp.new(/^\d+$/)
       return false if !@vm_id.nil? && @vm_id !~ Regexp.new(/^\d+$/)
       return false if !@volume_id.nil? && @volume_id !~ Regexp.new(/^\d+$/)
       true
@@ -128,16 +114,6 @@ module TopologicalInventoryApiClient
       end
 
       @id = id
-    end
-
-    # Custom attribute writer method with validation
-    # @param [Object] tenant_id Value to be assigned
-    def tenant_id=(tenant_id)
-      if !tenant_id.nil? && tenant_id !~ Regexp.new(/^\d+$/)
-        fail ArgumentError, 'invalid value for "tenant_id", must conform to the pattern /^\d+$/.'
-      end
-
-      @tenant_id = tenant_id
     end
 
     # Custom attribute writer method with validation
@@ -165,12 +141,11 @@ module TopologicalInventoryApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
-          tenant_id == o.tenant_id &&
-          vm_id == o.vm_id &&
-          volume_id == o.volume_id &&
           device == o.device &&
-          state == o.state
+          id == o.id &&
+          state == o.state &&
+          vm_id == o.vm_id &&
+          volume_id == o.volume_id
     end
 
     # @see the `==` method
@@ -182,7 +157,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, tenant_id, vm_id, volume_id, device, state].hash
+      [device, id, state, vm_id, volume_id].hash
     end
 
     # Builds the object from hash

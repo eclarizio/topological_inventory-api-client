@@ -13,16 +13,28 @@ OpenAPI Generator version: 3.3.4
 require 'date'
 
 module TopologicalInventoryApiClient
-  class IDReadOnly
+  class AvailabilitiesCollection
+    attr_accessor :meta
+
+    attr_accessor :links
+
+    attr_accessor :data
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'meta' => :'meta',
+        :'links' => :'links',
+        :'data' => :'data'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'meta' => :'CollectionMetadata',
+        :'links' => :'CollectionLinks',
+        :'data' => :'Array<Availability>'
       }
     end
 
@@ -33,6 +45,20 @@ module TopologicalInventoryApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'meta')
+        self.meta = attributes[:'meta']
+      end
+
+      if attributes.has_key?(:'links')
+        self.links = attributes[:'links']
+      end
+
+      if attributes.has_key?(:'data')
+        if (value = attributes[:'data']).is_a?(Array)
+          self.data = value
+        end
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -52,7 +78,10 @@ module TopologicalInventoryApiClient
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class
+      self.class == o.class &&
+          meta == o.meta &&
+          links == o.links &&
+          data == o.data
     end
 
     # @see the `==` method
@@ -64,7 +93,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [].hash
+      [meta, links, data].hash
     end
 
     # Builds the object from hash

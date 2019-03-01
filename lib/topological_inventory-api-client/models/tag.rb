@@ -14,32 +14,36 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class Tag
-    # ID of the resource (read only)
+    attr_accessor :created_at
+
+    attr_accessor :description
+
+    # ID of the resource
     attr_accessor :id
 
     attr_accessor :name
 
     attr_accessor :namespace
 
-    attr_accessor :description
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'created_at' => :'created_at',
+        :'description' => :'description',
         :'id' => :'id',
         :'name' => :'name',
-        :'namespace' => :'namespace',
-        :'description' => :'description'
+        :'namespace' => :'namespace'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'created_at' => :'DateTime',
+        :'description' => :'String',
         :'id' => :'String',
         :'name' => :'String',
-        :'namespace' => :'String',
-        :'description' => :'String'
+        :'namespace' => :'String'
       }
     end
 
@@ -51,6 +55,14 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
+      end
+
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
@@ -61,10 +73,6 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'namespace')
         self.namespace = attributes[:'namespace']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
       end
     end
 
@@ -101,10 +109,11 @@ module TopologicalInventoryApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          created_at == o.created_at &&
+          description == o.description &&
           id == o.id &&
           name == o.name &&
-          namespace == o.namespace &&
-          description == o.description
+          namespace == o.namespace
     end
 
     # @see the `==` method
@@ -116,7 +125,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, name, namespace, description].hash
+      [created_at, description, id, name, namespace].hash
     end
 
     # Builds the object from hash

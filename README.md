@@ -91,6 +91,7 @@ Class | Method | HTTP request | Description
 *TopologicalInventoryApiClient::DefaultApi* | [**delete_authentication**](docs/DefaultApi.md#delete_authentication) | **DELETE** /authentications/{id} | Delete an existing Authentication
 *TopologicalInventoryApiClient::DefaultApi* | [**delete_endpoint**](docs/DefaultApi.md#delete_endpoint) | **DELETE** /endpoints/{id} | Delete an existing Endpoint
 *TopologicalInventoryApiClient::DefaultApi* | [**delete_source**](docs/DefaultApi.md#delete_source) | **DELETE** /sources/{id} | Delete an existing Source
+*TopologicalInventoryApiClient::DefaultApi* | [**get_documentation**](docs/DefaultApi.md#get_documentation) | **GET** /openapi.json | Return this API document in JSON format
 *TopologicalInventoryApiClient::DefaultApi* | [**list_authentications**](docs/DefaultApi.md#list_authentications) | **GET** /authentications | List Authentications
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_group_containers**](docs/DefaultApi.md#list_container_group_containers) | **GET** /container_groups/{id}/containers | List Containers for ContainerGroup
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_groups**](docs/DefaultApi.md#list_container_groups) | **GET** /container_groups | List ContainerGroups
@@ -113,6 +114,7 @@ Class | Method | HTTP request | Description
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_offerings**](docs/DefaultApi.md#list_service_offerings) | **GET** /service_offerings | List ServiceOfferings
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_plan_service_instances**](docs/DefaultApi.md#list_service_plan_service_instances) | **GET** /service_plans/{id}/service_instances | List ServiceInstances for ServicePlan
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_plans**](docs/DefaultApi.md#list_service_plans) | **GET** /service_plans | List ServicePlans
+*TopologicalInventoryApiClient::DefaultApi* | [**list_source_availabilities**](docs/DefaultApi.md#list_source_availabilities) | **GET** /sources/{id}/availabilities | List Availabilities for Source
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_container_groups**](docs/DefaultApi.md#list_source_container_groups) | **GET** /sources/{id}/container_groups | List ContainerGroups for Source
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_container_images**](docs/DefaultApi.md#list_source_container_images) | **GET** /sources/{id}/container_images | List ContainerImages for Source
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_container_nodes**](docs/DefaultApi.md#list_source_container_nodes) | **GET** /sources/{id}/container_nodes | List ContainerNodes for Source
@@ -124,6 +126,7 @@ Class | Method | HTTP request | Description
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_service_instances**](docs/DefaultApi.md#list_source_service_instances) | **GET** /sources/{id}/service_instances | List ServiceInstances for Source
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_service_offerings**](docs/DefaultApi.md#list_source_service_offerings) | **GET** /sources/{id}/service_offerings | List ServiceOfferings for Source
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_service_plans**](docs/DefaultApi.md#list_source_service_plans) | **GET** /sources/{id}/service_plans | List ServicePlans for Source
+*TopologicalInventoryApiClient::DefaultApi* | [**list_source_type_availabilities**](docs/DefaultApi.md#list_source_type_availabilities) | **GET** /source_types/{id}/availabilities | List Availabilities for SourceType
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_type_sources**](docs/DefaultApi.md#list_source_type_sources) | **GET** /source_types/{id}/sources | List Sources for SourceType
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_types**](docs/DefaultApi.md#list_source_types) | **GET** /source_types | List SourceTypes
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_vms**](docs/DefaultApi.md#list_source_vms) | **GET** /sources/{id}/vms | List Vms for Source
@@ -171,6 +174,8 @@ Class | Method | HTTP request | Description
 
  - [TopologicalInventoryApiClient::Authentication](docs/Authentication.md)
  - [TopologicalInventoryApiClient::AuthenticationsCollection](docs/AuthenticationsCollection.md)
+ - [TopologicalInventoryApiClient::AvailabilitiesCollection](docs/AvailabilitiesCollection.md)
+ - [TopologicalInventoryApiClient::Availability](docs/Availability.md)
  - [TopologicalInventoryApiClient::CollectionLinks](docs/CollectionLinks.md)
  - [TopologicalInventoryApiClient::CollectionMetadata](docs/CollectionMetadata.md)
  - [TopologicalInventoryApiClient::Container](docs/Container.md)
