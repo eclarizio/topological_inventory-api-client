@@ -84,7 +84,7 @@ module TopologicalInventoryApiClient
     def self.openapi_types
       {
         :'archived_at' => :'DateTime',
-        :'create_json_schema' => :'String',
+        :'create_json_schema' => :'Object',
         :'created_at' => :'DateTime',
         :'description' => :'String',
         :'extra' => :'String',

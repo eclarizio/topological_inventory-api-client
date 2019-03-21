@@ -1,0 +1,8 @@
+{
+	"moduleName": "TopologicalInventoryApiClient",
+	"gemName": "topological_inventory-api-client",
+	"gemHomepage" : "https://github.com/ManageIQ/topological_inventory-api-client-ruby",
+	"gemAuthor" : "manageiq_authors",
+	"gemLicense" : "Apache-2.0",
+	"gemDescription" : "Ruby client gem to connect to ManageIQ Topology Service"
+}
