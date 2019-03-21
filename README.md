@@ -81,7 +81,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://virtserver.swaggerhub.com/r/insights/platform/topological-inventory/v0.1*
+All URIs are relative to *https://virtserver.swaggerhub.com/api/topological-inventory/v0.1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -95,13 +95,20 @@ Class | Method | HTTP request | Description
 *TopologicalInventoryApiClient::DefaultApi* | [**get_documentation**](docs/DefaultApi.md#get_documentation) | **GET** /openapi.json | Return this API document in JSON format
 *TopologicalInventoryApiClient::DefaultApi* | [**list_authentications**](docs/DefaultApi.md#list_authentications) | **GET** /authentications | List Authentications
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_group_containers**](docs/DefaultApi.md#list_container_group_containers) | **GET** /container_groups/{id}/containers | List Containers for ContainerGroup
+*TopologicalInventoryApiClient::DefaultApi* | [**list_container_group_tags**](docs/DefaultApi.md#list_container_group_tags) | **GET** /container_groups/{id}/tags | List Tags for ContainerGroup
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_groups**](docs/DefaultApi.md#list_container_groups) | **GET** /container_groups | List ContainerGroups
+*TopologicalInventoryApiClient::DefaultApi* | [**list_container_image_tags**](docs/DefaultApi.md#list_container_image_tags) | **GET** /container_images/{id}/tags | List Tags for ContainerImage
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_images**](docs/DefaultApi.md#list_container_images) | **GET** /container_images | List ContainerImages
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_node_container_groups**](docs/DefaultApi.md#list_container_node_container_groups) | **GET** /container_nodes/{id}/container_groups | List ContainerGroups for ContainerNode
+*TopologicalInventoryApiClient::DefaultApi* | [**list_container_node_tags**](docs/DefaultApi.md#list_container_node_tags) | **GET** /container_nodes/{id}/tags | List Tags for ContainerNode
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_nodes**](docs/DefaultApi.md#list_container_nodes) | **GET** /container_nodes | List ContainerNodes
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_project_container_groups**](docs/DefaultApi.md#list_container_project_container_groups) | **GET** /container_projects/{id}/container_groups | List ContainerGroups for ContainerProject
+*TopologicalInventoryApiClient::DefaultApi* | [**list_container_project_container_resource_quota**](docs/DefaultApi.md#list_container_project_container_resource_quota) | **GET** /container_projects/{id}/container_resource_quotas | List ContainerResourceQuota for ContainerProject
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_project_container_templates**](docs/DefaultApi.md#list_container_project_container_templates) | **GET** /container_projects/{id}/container_templates | List ContainerTemplates for ContainerProject
+*TopologicalInventoryApiClient::DefaultApi* | [**list_container_project_tags**](docs/DefaultApi.md#list_container_project_tags) | **GET** /container_projects/{id}/tags | List Tags for ContainerProject
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_projects**](docs/DefaultApi.md#list_container_projects) | **GET** /container_projects | List ContainerProjects
+*TopologicalInventoryApiClient::DefaultApi* | [**list_container_resource_quota**](docs/DefaultApi.md#list_container_resource_quota) | **GET** /container_resource_quotas | List ContainerResourceQuota
+*TopologicalInventoryApiClient::DefaultApi* | [**list_container_template_tags**](docs/DefaultApi.md#list_container_template_tags) | **GET** /container_templates/{id}/tags | List Tags for ContainerTemplate
 *TopologicalInventoryApiClient::DefaultApi* | [**list_container_templates**](docs/DefaultApi.md#list_container_templates) | **GET** /container_templates | List ContainerTemplates
 *TopologicalInventoryApiClient::DefaultApi* | [**list_containers**](docs/DefaultApi.md#list_containers) | **GET** /containers | List Containers
 *TopologicalInventoryApiClient::DefaultApi* | [**list_endpoint_authentications**](docs/DefaultApi.md#list_endpoint_authentications) | **GET** /endpoints/{id}/authentications | List Authentications for Endpoint
@@ -112,6 +119,7 @@ Class | Method | HTTP request | Description
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_offering_icons**](docs/DefaultApi.md#list_service_offering_icons) | **GET** /service_offering_icons | List ServiceOfferingIcons
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_offering_service_instances**](docs/DefaultApi.md#list_service_offering_service_instances) | **GET** /service_offerings/{id}/service_instances | List ServiceInstances for ServiceOffering
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_offering_service_plans**](docs/DefaultApi.md#list_service_offering_service_plans) | **GET** /service_offerings/{id}/service_plans | List ServicePlans for ServiceOffering
+*TopologicalInventoryApiClient::DefaultApi* | [**list_service_offering_tags**](docs/DefaultApi.md#list_service_offering_tags) | **GET** /service_offerings/{id}/tags | List Tags for ServiceOffering
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_offerings**](docs/DefaultApi.md#list_service_offerings) | **GET** /service_offerings | List ServiceOfferings
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_plan_service_instances**](docs/DefaultApi.md#list_service_plan_service_instances) | **GET** /service_plans/{id}/service_instances | List ServiceInstances for ServicePlan
 *TopologicalInventoryApiClient::DefaultApi* | [**list_service_plans**](docs/DefaultApi.md#list_service_plans) | **GET** /service_plans | List ServicePlans
@@ -134,8 +142,16 @@ Class | Method | HTTP request | Description
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_volume_types**](docs/DefaultApi.md#list_source_volume_types) | **GET** /sources/{id}/volume_types | List VolumeTypes for Source
 *TopologicalInventoryApiClient::DefaultApi* | [**list_source_volumes**](docs/DefaultApi.md#list_source_volumes) | **GET** /sources/{id}/volumes | List Volumes for Source
 *TopologicalInventoryApiClient::DefaultApi* | [**list_sources**](docs/DefaultApi.md#list_sources) | **GET** /sources | List Sources
+*TopologicalInventoryApiClient::DefaultApi* | [**list_tag_container_groups**](docs/DefaultApi.md#list_tag_container_groups) | **GET** /tags/{id}/container_groups | List ContainerGroups for Tag
+*TopologicalInventoryApiClient::DefaultApi* | [**list_tag_container_images**](docs/DefaultApi.md#list_tag_container_images) | **GET** /tags/{id}/container_images | List ContainerImages for Tag
+*TopologicalInventoryApiClient::DefaultApi* | [**list_tag_container_nodes**](docs/DefaultApi.md#list_tag_container_nodes) | **GET** /tags/{id}/container_nodes | List ContainerNodes for Tag
+*TopologicalInventoryApiClient::DefaultApi* | [**list_tag_container_projects**](docs/DefaultApi.md#list_tag_container_projects) | **GET** /tags/{id}/container_projects | List ContainerProjects for Tag
+*TopologicalInventoryApiClient::DefaultApi* | [**list_tag_container_templates**](docs/DefaultApi.md#list_tag_container_templates) | **GET** /tags/{id}/container_templates | List ContainerTemplates for Tag
+*TopologicalInventoryApiClient::DefaultApi* | [**list_tag_service_offerings**](docs/DefaultApi.md#list_tag_service_offerings) | **GET** /tags/{id}/service_offerings | List ServiceOfferings for Tag
+*TopologicalInventoryApiClient::DefaultApi* | [**list_tag_vms**](docs/DefaultApi.md#list_tag_vms) | **GET** /tags/{id}/vms | List Vms for Tag
 *TopologicalInventoryApiClient::DefaultApi* | [**list_tags**](docs/DefaultApi.md#list_tags) | **GET** /tags | List Tags
 *TopologicalInventoryApiClient::DefaultApi* | [**list_tasks**](docs/DefaultApi.md#list_tasks) | **GET** /tasks | List Tasks
+*TopologicalInventoryApiClient::DefaultApi* | [**list_vm_tags**](docs/DefaultApi.md#list_vm_tags) | **GET** /vms/{id}/tags | List Tags for Vm
 *TopologicalInventoryApiClient::DefaultApi* | [**list_vm_volume_attachments**](docs/DefaultApi.md#list_vm_volume_attachments) | **GET** /vms/{id}/volume_attachments | List VolumeAttachments for Vm
 *TopologicalInventoryApiClient::DefaultApi* | [**list_vm_volumes**](docs/DefaultApi.md#list_vm_volumes) | **GET** /vms/{id}/volumes | List Volumes for Vm
 *TopologicalInventoryApiClient::DefaultApi* | [**list_vms**](docs/DefaultApi.md#list_vms) | **GET** /vms | List Vms
@@ -149,6 +165,7 @@ Class | Method | HTTP request | Description
 *TopologicalInventoryApiClient::DefaultApi* | [**show_container_image**](docs/DefaultApi.md#show_container_image) | **GET** /container_images/{id} | Show an existing ContainerImage
 *TopologicalInventoryApiClient::DefaultApi* | [**show_container_node**](docs/DefaultApi.md#show_container_node) | **GET** /container_nodes/{id} | Show an existing ContainerNode
 *TopologicalInventoryApiClient::DefaultApi* | [**show_container_project**](docs/DefaultApi.md#show_container_project) | **GET** /container_projects/{id} | Show an existing ContainerProject
+*TopologicalInventoryApiClient::DefaultApi* | [**show_container_resource_quota**](docs/DefaultApi.md#show_container_resource_quota) | **GET** /container_resource_quotas/{id} | Show an existing ContainerResourceQuota
 *TopologicalInventoryApiClient::DefaultApi* | [**show_container_template**](docs/DefaultApi.md#show_container_template) | **GET** /container_templates/{id} | Show an existing ContainerTemplate
 *TopologicalInventoryApiClient::DefaultApi* | [**show_endpoint**](docs/DefaultApi.md#show_endpoint) | **GET** /endpoints/{id} | Show an existing Endpoint
 *TopologicalInventoryApiClient::DefaultApi* | [**show_flavor**](docs/DefaultApi.md#show_flavor) | **GET** /flavors/{id} | Show an existing Flavor
@@ -188,6 +205,8 @@ Class | Method | HTTP request | Description
  - [TopologicalInventoryApiClient::ContainerNodesCollection](docs/ContainerNodesCollection.md)
  - [TopologicalInventoryApiClient::ContainerProject](docs/ContainerProject.md)
  - [TopologicalInventoryApiClient::ContainerProjectsCollection](docs/ContainerProjectsCollection.md)
+ - [TopologicalInventoryApiClient::ContainerResourceQuota](docs/ContainerResourceQuota.md)
+ - [TopologicalInventoryApiClient::ContainerResourceQuotaCollection](docs/ContainerResourceQuotaCollection.md)
  - [TopologicalInventoryApiClient::ContainerTemplate](docs/ContainerTemplate.md)
  - [TopologicalInventoryApiClient::ContainerTemplatesCollection](docs/ContainerTemplatesCollection.md)
  - [TopologicalInventoryApiClient::ContainersCollection](docs/ContainersCollection.md)

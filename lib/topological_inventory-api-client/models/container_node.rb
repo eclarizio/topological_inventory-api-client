@@ -14,7 +14,17 @@ require 'date'
 
 module TopologicalInventoryApiClient
   class ContainerNode
+    attr_accessor :addresses
+
+    attr_accessor :allocatable_cpus
+
+    attr_accessor :allocatable_memory
+
+    attr_accessor :allocatable_pods
+
     attr_accessor :archived_at
+
+    attr_accessor :conditions
 
     attr_accessor :cpus
 
@@ -34,6 +44,10 @@ module TopologicalInventoryApiClient
 
     attr_accessor :name
 
+    attr_accessor :node_info
+
+    attr_accessor :pods
+
     attr_accessor :resource_version
 
     attr_accessor :source_created_at
@@ -45,14 +59,17 @@ module TopologicalInventoryApiClient
 
     attr_accessor :source_ref
 
-    attr_accessor :taggings
-
     attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'addresses' => :'addresses',
+        :'allocatable_cpus' => :'allocatable_cpus',
+        :'allocatable_memory' => :'allocatable_memory',
+        :'allocatable_pods' => :'allocatable_pods',
         :'archived_at' => :'archived_at',
+        :'conditions' => :'conditions',
         :'cpus' => :'cpus',
         :'created_at' => :'created_at',
         :'id' => :'id',
@@ -61,12 +78,13 @@ module TopologicalInventoryApiClient
         :'lives_on_type' => :'lives_on_type',
         :'memory' => :'memory',
         :'name' => :'name',
+        :'node_info' => :'node_info',
+        :'pods' => :'pods',
         :'resource_version' => :'resource_version',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'source_id' => :'source_id',
         :'source_ref' => :'source_ref',
-        :'taggings' => :'taggings',
         :'updated_at' => :'updated_at'
       }
     end
@@ -74,7 +92,12 @@ module TopologicalInventoryApiClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'addresses' => :'Object',
+        :'allocatable_cpus' => :'Float',
+        :'allocatable_memory' => :'Integer',
+        :'allocatable_pods' => :'Integer',
         :'archived_at' => :'DateTime',
+        :'conditions' => :'Object',
         :'cpus' => :'Integer',
         :'created_at' => :'DateTime',
         :'id' => :'String',
@@ -83,12 +106,13 @@ module TopologicalInventoryApiClient
         :'lives_on_type' => :'String',
         :'memory' => :'Integer',
         :'name' => :'String',
+        :'node_info' => :'Object',
+        :'pods' => :'Integer',
         :'resource_version' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'source_id' => :'String',
         :'source_ref' => :'String',
-        :'taggings' => :'Array<Tagging>',
         :'updated_at' => :'DateTime'
       }
     end
@@ -101,8 +125,28 @@ module TopologicalInventoryApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
+      if attributes.has_key?(:'addresses')
+        self.addresses = attributes[:'addresses']
+      end
+
+      if attributes.has_key?(:'allocatable_cpus')
+        self.allocatable_cpus = attributes[:'allocatable_cpus']
+      end
+
+      if attributes.has_key?(:'allocatable_memory')
+        self.allocatable_memory = attributes[:'allocatable_memory']
+      end
+
+      if attributes.has_key?(:'allocatable_pods')
+        self.allocatable_pods = attributes[:'allocatable_pods']
+      end
+
       if attributes.has_key?(:'archived_at')
         self.archived_at = attributes[:'archived_at']
+      end
+
+      if attributes.has_key?(:'conditions')
+        self.conditions = attributes[:'conditions']
       end
 
       if attributes.has_key?(:'cpus')
@@ -137,6 +181,14 @@ module TopologicalInventoryApiClient
         self.name = attributes[:'name']
       end
 
+      if attributes.has_key?(:'node_info')
+        self.node_info = attributes[:'node_info']
+      end
+
+      if attributes.has_key?(:'pods')
+        self.pods = attributes[:'pods']
+      end
+
       if attributes.has_key?(:'resource_version')
         self.resource_version = attributes[:'resource_version']
       end
@@ -155,12 +207,6 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'source_ref')
         self.source_ref = attributes[:'source_ref']
-      end
-
-      if attributes.has_key?(:'taggings')
-        if (value = attributes[:'taggings']).is_a?(Array)
-          self.taggings = value
-        end
       end
 
       if attributes.has_key?(:'updated_at')
@@ -231,7 +277,12 @@ module TopologicalInventoryApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          addresses == o.addresses &&
+          allocatable_cpus == o.allocatable_cpus &&
+          allocatable_memory == o.allocatable_memory &&
+          allocatable_pods == o.allocatable_pods &&
           archived_at == o.archived_at &&
+          conditions == o.conditions &&
           cpus == o.cpus &&
           created_at == o.created_at &&
           id == o.id &&
@@ -240,12 +291,13 @@ module TopologicalInventoryApiClient
           lives_on_type == o.lives_on_type &&
           memory == o.memory &&
           name == o.name &&
+          node_info == o.node_info &&
+          pods == o.pods &&
           resource_version == o.resource_version &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           source_id == o.source_id &&
           source_ref == o.source_ref &&
-          taggings == o.taggings &&
           updated_at == o.updated_at
     end
 
@@ -258,7 +310,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [archived_at, cpus, created_at, id, last_seen_at, lives_on_id, lives_on_type, memory, name, resource_version, source_created_at, source_deleted_at, source_id, source_ref, taggings, updated_at].hash
+      [addresses, allocatable_cpus, allocatable_memory, allocatable_pods, archived_at, conditions, cpus, created_at, id, last_seen_at, lives_on_id, lives_on_type, memory, name, node_info, pods, resource_version, source_created_at, source_deleted_at, source_id, source_ref, updated_at].hash
     end
 
     # Builds the object from hash

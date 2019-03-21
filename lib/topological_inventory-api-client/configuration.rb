@@ -130,7 +130,7 @@ module TopologicalInventoryApiClient
     def initialize
       @scheme = 'https'
       @host = 'virtserver.swaggerhub.com'
-      @base_path = '/r/insights/platform/topological-inventory/v0.1'
+      @base_path = '/api/topological-inventory/v0.1'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
@@ -210,11 +210,11 @@ module TopologicalInventoryApiClient
     def server_settings
       [
         {
-          url: "https://virtserver.swaggerhub.com/r/insights/platform/topological-inventory/v0.1",
+          url: "https://virtserver.swaggerhub.com/api/topological-inventory/v0.1",
           description: "No descriptoin provided",
         },
         {
-          url: "http://virtserver.swaggerhub.com/r/insights/platform/topological-inventory/v0.1",
+          url: "http://virtserver.swaggerhub.com/api/topological-inventory/v0.1",
           description: "No descriptoin provided",
         }
       ]

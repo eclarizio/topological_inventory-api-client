@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **id** | **String** | ID of the resource | [optional] 
 **name** | **String** |  | [optional] 
 **namespace** | **String** |  | [optional] 
+**value** | **String** |  | [optional] 
 
 

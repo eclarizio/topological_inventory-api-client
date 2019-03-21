@@ -59,8 +59,6 @@ module TopologicalInventoryApiClient
 
     attr_accessor :support_url
 
-    attr_accessor :taggings
-
     attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -85,7 +83,6 @@ module TopologicalInventoryApiClient
         :'source_region_id' => :'source_region_id',
         :'subscription_id' => :'subscription_id',
         :'support_url' => :'support_url',
-        :'taggings' => :'taggings',
         :'updated_at' => :'updated_at'
       }
     end
@@ -112,7 +109,6 @@ module TopologicalInventoryApiClient
         :'source_region_id' => :'String',
         :'subscription_id' => :'String',
         :'support_url' => :'String',
-        :'taggings' => :'Array<Tagging>',
         :'updated_at' => :'DateTime'
       }
     end
@@ -199,12 +195,6 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'support_url')
         self.support_url = attributes[:'support_url']
-      end
-
-      if attributes.has_key?(:'taggings')
-        if (value = attributes[:'taggings']).is_a?(Array)
-          self.taggings = value
-        end
       end
 
       if attributes.has_key?(:'updated_at')
@@ -324,7 +314,6 @@ module TopologicalInventoryApiClient
           source_region_id == o.source_region_id &&
           subscription_id == o.subscription_id &&
           support_url == o.support_url &&
-          taggings == o.taggings &&
           updated_at == o.updated_at
     end
 
@@ -337,7 +326,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [archived_at, created_at, description, display_name, distributor, documentation_url, extra, id, last_seen_at, long_description, name, service_offering_icon_id, source_created_at, source_deleted_at, source_id, source_ref, source_region_id, subscription_id, support_url, taggings, updated_at].hash
+      [archived_at, created_at, description, display_name, distributor, documentation_url, extra, id, last_seen_at, long_description, name, service_offering_icon_id, source_created_at, source_deleted_at, source_id, source_ref, source_region_id, subscription_id, support_url, updated_at].hash
     end
 
     # Builds the object from hash

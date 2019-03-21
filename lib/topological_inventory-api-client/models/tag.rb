@@ -25,6 +25,8 @@ module TopologicalInventoryApiClient
 
     attr_accessor :namespace
 
+    attr_accessor :value
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -32,7 +34,8 @@ module TopologicalInventoryApiClient
         :'description' => :'description',
         :'id' => :'id',
         :'name' => :'name',
-        :'namespace' => :'namespace'
+        :'namespace' => :'namespace',
+        :'value' => :'value'
       }
     end
 
@@ -43,7 +46,8 @@ module TopologicalInventoryApiClient
         :'description' => :'String',
         :'id' => :'String',
         :'name' => :'String',
-        :'namespace' => :'String'
+        :'namespace' => :'String',
+        :'value' => :'String'
       }
     end
 
@@ -73,6 +77,10 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'namespace')
         self.namespace = attributes[:'namespace']
+      end
+
+      if attributes.has_key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -113,7 +121,8 @@ module TopologicalInventoryApiClient
           description == o.description &&
           id == o.id &&
           name == o.name &&
-          namespace == o.namespace
+          namespace == o.namespace &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -125,7 +134,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [created_at, description, id, name, namespace].hash
+      [created_at, description, id, name, namespace, value].hash
     end
 
     # Builds the object from hash

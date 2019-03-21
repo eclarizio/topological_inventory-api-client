@@ -39,8 +39,6 @@ module TopologicalInventoryApiClient
 
     attr_accessor :source_ref
 
-    attr_accessor :taggings
-
     attr_accessor :updated_at
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -57,7 +55,6 @@ module TopologicalInventoryApiClient
         :'source_deleted_at' => :'source_deleted_at',
         :'source_id' => :'source_id',
         :'source_ref' => :'source_ref',
-        :'taggings' => :'taggings',
         :'updated_at' => :'updated_at'
       }
     end
@@ -76,7 +73,6 @@ module TopologicalInventoryApiClient
         :'source_deleted_at' => :'DateTime',
         :'source_id' => :'String',
         :'source_ref' => :'String',
-        :'taggings' => :'Array<Tagging>',
         :'updated_at' => :'DateTime'
       }
     end
@@ -131,12 +127,6 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'source_ref')
         self.source_ref = attributes[:'source_ref']
-      end
-
-      if attributes.has_key?(:'taggings')
-        if (value = attributes[:'taggings']).is_a?(Array)
-          self.taggings = value
-        end
       end
 
       if attributes.has_key?(:'updated_at')
@@ -218,7 +208,6 @@ module TopologicalInventoryApiClient
           source_deleted_at == o.source_deleted_at &&
           source_id == o.source_id &&
           source_ref == o.source_ref &&
-          taggings == o.taggings &&
           updated_at == o.updated_at
     end
 
@@ -231,7 +220,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [archived_at, container_project_id, created_at, id, last_seen_at, name, resource_version, source_created_at, source_deleted_at, source_id, source_ref, taggings, updated_at].hash
+      [archived_at, container_project_id, created_at, id, last_seen_at, name, resource_version, source_created_at, source_deleted_at, source_id, source_ref, updated_at].hash
     end
 
     # Builds the object from hash

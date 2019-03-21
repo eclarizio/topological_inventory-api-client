@@ -22,7 +22,6 @@ Name | Type | Description | Notes
 **source_region_id** | **String** | ID of the resource | [optional] 
 **subscription_id** | **String** | ID of the resource | [optional] 
 **support_url** | **String** |  | [optional] 
-**taggings** | [**Array&lt;Tagging&gt;**](Tagging.md) |  | [optional] 
 **updated_at** | **DateTime** |  | [optional] 
 
 

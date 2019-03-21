@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **source_deleted_at** | **DateTime** |  | [optional] 
 **source_id** | **String** | ID of the resource | [optional] 
 **source_ref** | **String** |  | [optional] 
-**taggings** | [**Array&lt;Tagging&gt;**](Tagging.md) |  | [optional] 
 **updated_at** | **DateTime** |  | [optional] 
 
 
