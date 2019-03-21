@@ -1,6 +1,6 @@
 # TopologicalInventoryApiClient::DefaultApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/r/insights/platform/topological-inventory/v0.1*
+All URIs are relative to *https://virtserver.swaggerhub.com/api/topological-inventory/v0.1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,13 +14,20 @@ Method | HTTP request | Description
 [**get_documentation**](DefaultApi.md#get_documentation) | **GET** /openapi.json | Return this API document in JSON format
 [**list_authentications**](DefaultApi.md#list_authentications) | **GET** /authentications | List Authentications
 [**list_container_group_containers**](DefaultApi.md#list_container_group_containers) | **GET** /container_groups/{id}/containers | List Containers for ContainerGroup
+[**list_container_group_tags**](DefaultApi.md#list_container_group_tags) | **GET** /container_groups/{id}/tags | List Tags for ContainerGroup
 [**list_container_groups**](DefaultApi.md#list_container_groups) | **GET** /container_groups | List ContainerGroups
+[**list_container_image_tags**](DefaultApi.md#list_container_image_tags) | **GET** /container_images/{id}/tags | List Tags for ContainerImage
 [**list_container_images**](DefaultApi.md#list_container_images) | **GET** /container_images | List ContainerImages
 [**list_container_node_container_groups**](DefaultApi.md#list_container_node_container_groups) | **GET** /container_nodes/{id}/container_groups | List ContainerGroups for ContainerNode
+[**list_container_node_tags**](DefaultApi.md#list_container_node_tags) | **GET** /container_nodes/{id}/tags | List Tags for ContainerNode
 [**list_container_nodes**](DefaultApi.md#list_container_nodes) | **GET** /container_nodes | List ContainerNodes
 [**list_container_project_container_groups**](DefaultApi.md#list_container_project_container_groups) | **GET** /container_projects/{id}/container_groups | List ContainerGroups for ContainerProject
+[**list_container_project_container_resource_quota**](DefaultApi.md#list_container_project_container_resource_quota) | **GET** /container_projects/{id}/container_resource_quotas | List ContainerResourceQuota for ContainerProject
 [**list_container_project_container_templates**](DefaultApi.md#list_container_project_container_templates) | **GET** /container_projects/{id}/container_templates | List ContainerTemplates for ContainerProject
+[**list_container_project_tags**](DefaultApi.md#list_container_project_tags) | **GET** /container_projects/{id}/tags | List Tags for ContainerProject
 [**list_container_projects**](DefaultApi.md#list_container_projects) | **GET** /container_projects | List ContainerProjects
+[**list_container_resource_quota**](DefaultApi.md#list_container_resource_quota) | **GET** /container_resource_quotas | List ContainerResourceQuota
+[**list_container_template_tags**](DefaultApi.md#list_container_template_tags) | **GET** /container_templates/{id}/tags | List Tags for ContainerTemplate
 [**list_container_templates**](DefaultApi.md#list_container_templates) | **GET** /container_templates | List ContainerTemplates
 [**list_containers**](DefaultApi.md#list_containers) | **GET** /containers | List Containers
 [**list_endpoint_authentications**](DefaultApi.md#list_endpoint_authentications) | **GET** /endpoints/{id}/authentications | List Authentications for Endpoint
@@ -31,6 +38,7 @@ Method | HTTP request | Description
 [**list_service_offering_icons**](DefaultApi.md#list_service_offering_icons) | **GET** /service_offering_icons | List ServiceOfferingIcons
 [**list_service_offering_service_instances**](DefaultApi.md#list_service_offering_service_instances) | **GET** /service_offerings/{id}/service_instances | List ServiceInstances for ServiceOffering
 [**list_service_offering_service_plans**](DefaultApi.md#list_service_offering_service_plans) | **GET** /service_offerings/{id}/service_plans | List ServicePlans for ServiceOffering
+[**list_service_offering_tags**](DefaultApi.md#list_service_offering_tags) | **GET** /service_offerings/{id}/tags | List Tags for ServiceOffering
 [**list_service_offerings**](DefaultApi.md#list_service_offerings) | **GET** /service_offerings | List ServiceOfferings
 [**list_service_plan_service_instances**](DefaultApi.md#list_service_plan_service_instances) | **GET** /service_plans/{id}/service_instances | List ServiceInstances for ServicePlan
 [**list_service_plans**](DefaultApi.md#list_service_plans) | **GET** /service_plans | List ServicePlans
@@ -53,8 +61,16 @@ Method | HTTP request | Description
 [**list_source_volume_types**](DefaultApi.md#list_source_volume_types) | **GET** /sources/{id}/volume_types | List VolumeTypes for Source
 [**list_source_volumes**](DefaultApi.md#list_source_volumes) | **GET** /sources/{id}/volumes | List Volumes for Source
 [**list_sources**](DefaultApi.md#list_sources) | **GET** /sources | List Sources
+[**list_tag_container_groups**](DefaultApi.md#list_tag_container_groups) | **GET** /tags/{id}/container_groups | List ContainerGroups for Tag
+[**list_tag_container_images**](DefaultApi.md#list_tag_container_images) | **GET** /tags/{id}/container_images | List ContainerImages for Tag
+[**list_tag_container_nodes**](DefaultApi.md#list_tag_container_nodes) | **GET** /tags/{id}/container_nodes | List ContainerNodes for Tag
+[**list_tag_container_projects**](DefaultApi.md#list_tag_container_projects) | **GET** /tags/{id}/container_projects | List ContainerProjects for Tag
+[**list_tag_container_templates**](DefaultApi.md#list_tag_container_templates) | **GET** /tags/{id}/container_templates | List ContainerTemplates for Tag
+[**list_tag_service_offerings**](DefaultApi.md#list_tag_service_offerings) | **GET** /tags/{id}/service_offerings | List ServiceOfferings for Tag
+[**list_tag_vms**](DefaultApi.md#list_tag_vms) | **GET** /tags/{id}/vms | List Vms for Tag
 [**list_tags**](DefaultApi.md#list_tags) | **GET** /tags | List Tags
 [**list_tasks**](DefaultApi.md#list_tasks) | **GET** /tasks | List Tasks
+[**list_vm_tags**](DefaultApi.md#list_vm_tags) | **GET** /vms/{id}/tags | List Tags for Vm
 [**list_vm_volume_attachments**](DefaultApi.md#list_vm_volume_attachments) | **GET** /vms/{id}/volume_attachments | List VolumeAttachments for Vm
 [**list_vm_volumes**](DefaultApi.md#list_vm_volumes) | **GET** /vms/{id}/volumes | List Volumes for Vm
 [**list_vms**](DefaultApi.md#list_vms) | **GET** /vms | List Vms
@@ -68,6 +84,7 @@ Method | HTTP request | Description
 [**show_container_image**](DefaultApi.md#show_container_image) | **GET** /container_images/{id} | Show an existing ContainerImage
 [**show_container_node**](DefaultApi.md#show_container_node) | **GET** /container_nodes/{id} | Show an existing ContainerNode
 [**show_container_project**](DefaultApi.md#show_container_project) | **GET** /container_projects/{id} | Show an existing ContainerProject
+[**show_container_resource_quota**](DefaultApi.md#show_container_resource_quota) | **GET** /container_resource_quotas/{id} | Show an existing ContainerResourceQuota
 [**show_container_template**](DefaultApi.md#show_container_template) | **GET** /container_templates/{id} | Show an existing ContainerTemplate
 [**show_endpoint**](DefaultApi.md#show_endpoint) | **GET** /endpoints/{id} | Show an existing Endpoint
 [**show_flavor**](DefaultApi.md#show_flavor) | **GET** /flavors/{id} | Show an existing Flavor
@@ -600,6 +617,63 @@ Name | Type | Description  | Notes
 
 
 
+# **list_container_group_tags**
+> TagsCollection list_container_group_tags(id, opts)
+
+List Tags for ContainerGroup
+
+Returns an array of Tag objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Tags for ContainerGroup
+  result = api_instance.list_container_group_tags(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_container_group_tags: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
 # **list_container_groups**
 > ContainerGroupsCollection list_container_groups(opts)
 
@@ -643,6 +717,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ContainerGroupsCollection**](ContainerGroupsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_container_image_tags**
+> TagsCollection list_container_image_tags(id, opts)
+
+List Tags for ContainerImage
+
+Returns an array of Tag objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Tags for ContainerImage
+  result = api_instance.list_container_image_tags(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_container_image_tags: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
 
 ### Authorization
 
@@ -767,6 +898,63 @@ Name | Type | Description  | Notes
 
 
 
+# **list_container_node_tags**
+> TagsCollection list_container_node_tags(id, opts)
+
+List Tags for ContainerNode
+
+Returns an array of Tag objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Tags for ContainerNode
+  result = api_instance.list_container_node_tags(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_container_node_tags: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
 # **list_container_nodes**
 > ContainerNodesCollection list_container_nodes(opts)
 
@@ -879,6 +1067,63 @@ Name | Type | Description  | Notes
 
 
 
+# **list_container_project_container_resource_quota**
+> ContainerResourceQuotaCollection list_container_project_container_resource_quota(id, opts)
+
+List ContainerResourceQuota for ContainerProject
+
+Returns an array of ContainerResourceQuota objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ContainerResourceQuota for ContainerProject
+  result = api_instance.list_container_project_container_resource_quota(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_container_project_container_resource_quota: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ContainerResourceQuotaCollection**](ContainerResourceQuotaCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
 # **list_container_project_container_templates**
 > ContainerTemplatesCollection list_container_project_container_templates(id, opts)
 
@@ -936,6 +1181,63 @@ Name | Type | Description  | Notes
 
 
 
+# **list_container_project_tags**
+> TagsCollection list_container_project_tags(id, opts)
+
+List Tags for ContainerProject
+
+Returns an array of Tag objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Tags for ContainerProject
+  result = api_instance.list_container_project_tags(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_container_project_tags: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
 # **list_container_projects**
 > ContainerProjectsCollection list_container_projects(opts)
 
@@ -979,6 +1281,118 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ContainerProjectsCollection**](ContainerProjectsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_container_resource_quota**
+> ContainerResourceQuotaCollection list_container_resource_quota(opts)
+
+List ContainerResourceQuota
+
+Returns an array of ContainerResourceQuota objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ContainerResourceQuota
+  result = api_instance.list_container_resource_quota(opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_container_resource_quota: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ContainerResourceQuotaCollection**](ContainerResourceQuotaCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_container_template_tags**
+> TagsCollection list_container_template_tags(id, opts)
+
+List Tags for ContainerTemplate
+
+Returns an array of Tag objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Tags for ContainerTemplate
+  result = api_instance.list_container_template_tags(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_container_template_tags: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
 
 ### Authorization
 
@@ -1535,6 +1949,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ServicePlansCollection**](ServicePlansCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_service_offering_tags**
+> TagsCollection list_service_offering_tags(id, opts)
+
+List Tags for ServiceOffering
+
+Returns an array of Tag objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Tags for ServiceOffering
+  result = api_instance.list_service_offering_tags(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_service_offering_tags: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
 
 ### Authorization
 
@@ -2793,6 +3264,405 @@ Name | Type | Description  | Notes
 
 
 
+# **list_tag_container_groups**
+> ContainerGroupsCollection list_tag_container_groups(id, opts)
+
+List ContainerGroups for Tag
+
+Returns an array of ContainerGroup objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ContainerGroups for Tag
+  result = api_instance.list_tag_container_groups(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_tag_container_groups: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ContainerGroupsCollection**](ContainerGroupsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_tag_container_images**
+> ContainerImagesCollection list_tag_container_images(id, opts)
+
+List ContainerImages for Tag
+
+Returns an array of ContainerImage objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ContainerImages for Tag
+  result = api_instance.list_tag_container_images(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_tag_container_images: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ContainerImagesCollection**](ContainerImagesCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_tag_container_nodes**
+> ContainerNodesCollection list_tag_container_nodes(id, opts)
+
+List ContainerNodes for Tag
+
+Returns an array of ContainerNode objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ContainerNodes for Tag
+  result = api_instance.list_tag_container_nodes(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_tag_container_nodes: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ContainerNodesCollection**](ContainerNodesCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_tag_container_projects**
+> ContainerProjectsCollection list_tag_container_projects(id, opts)
+
+List ContainerProjects for Tag
+
+Returns an array of ContainerProject objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ContainerProjects for Tag
+  result = api_instance.list_tag_container_projects(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_tag_container_projects: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ContainerProjectsCollection**](ContainerProjectsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_tag_container_templates**
+> ContainerTemplatesCollection list_tag_container_templates(id, opts)
+
+List ContainerTemplates for Tag
+
+Returns an array of ContainerTemplate objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ContainerTemplates for Tag
+  result = api_instance.list_tag_container_templates(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_tag_container_templates: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ContainerTemplatesCollection**](ContainerTemplatesCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_tag_service_offerings**
+> ServiceOfferingsCollection list_tag_service_offerings(id, opts)
+
+List ServiceOfferings for Tag
+
+Returns an array of ServiceOffering objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List ServiceOfferings for Tag
+  result = api_instance.list_tag_service_offerings(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_tag_service_offerings: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**ServiceOfferingsCollection**](ServiceOfferingsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_tag_vms**
+> VmsCollection list_tag_vms(id, opts)
+
+List Vms for Tag
+
+Returns an array of Vm objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Vms for Tag
+  result = api_instance.list_tag_vms(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_tag_vms: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**VmsCollection**](VmsCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
 # **list_tags**
 > TagsCollection list_tags(opts)
 
@@ -2891,6 +3761,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TasksCollection**](TasksCollection.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **list_vm_tags**
+> TagsCollection list_vm_tags(id, opts)
+
+List Tags for Vm
+
+Returns an array of Tag objects
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+opts = {
+  limit: 100, # Integer | The numbers of items to return per page.
+  offset: 0 # Integer | The number of items to skip before starting to collect the result set.
+}
+
+begin
+  #List Tags for Vm
+  result = api_instance.list_vm_tags(id, opts)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->list_vm_tags: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+ **limit** | **Integer**| The numbers of items to return per page. | [optional] [default to 100]
+ **offset** | **Integer**| The number of items to skip before starting to collect the result set. | [optional] [default to 0]
+
+### Return type
+
+[**TagsCollection**](TagsCollection.md)
 
 ### Authorization
 
@@ -3584,6 +4511,57 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**ContainerProject**](ContainerProject.md)
+
+### Authorization
+
+[UserSecurity](../README.md#UserSecurity)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **show_container_resource_quota**
+> ContainerResourceQuota show_container_resource_quota(id)
+
+Show an existing ContainerResourceQuota
+
+Returns a ContainerResourceQuota object
+
+### Example
+```ruby
+# load the gem
+require 'topological_inventory-api-client'
+# setup authorization
+TopologicalInventoryApiClient.configure do |config|
+  # Configure HTTP basic authorization: UserSecurity
+  config.username = 'YOUR USERNAME'
+  config.password = 'YOUR PASSWORD'
+end
+
+api_instance = TopologicalInventoryApiClient::DefaultApi.new
+id = 'id_example' # String | ID of the resource
+
+begin
+  #Show an existing ContainerResourceQuota
+  result = api_instance.show_container_resource_quota(id)
+  p result
+rescue TopologicalInventoryApiClient::ApiError => e
+  puts "Exception when calling DefaultApi->show_container_resource_quota: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **String**| ID of the resource | 
+
+### Return type
+
+[**ContainerResourceQuota**](ContainerResourceQuota.md)
 
 ### Authorization
 

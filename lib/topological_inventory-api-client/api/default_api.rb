@@ -583,6 +583,81 @@ module TopologicalInventoryApiClient
       return data, status_code, headers
     end
 
+    # List Tags for ContainerGroup
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [TagsCollection]
+    def list_container_group_tags(id, opts = {})
+      data, _status_code, _headers = list_container_group_tags_with_http_info(id, opts)
+      data
+    end
+
+    # List Tags for ContainerGroup
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(TagsCollection, Fixnum, Hash)>] TagsCollection data, response status code and response headers
+    def list_container_group_tags_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_container_group_tags ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_container_group_tags"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_container_group_tags, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_group_tags, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_group_tags, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_container_group_tags, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/container_groups/{id}/tags'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TagsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_container_group_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List ContainerGroups
     # Returns an array of ContainerGroup objects
     # @param [Hash] opts the optional parameters
@@ -644,6 +719,81 @@ module TopologicalInventoryApiClient
         :return_type => 'ContainerGroupsCollection')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#list_container_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Tags for ContainerImage
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [TagsCollection]
+    def list_container_image_tags(id, opts = {})
+      data, _status_code, _headers = list_container_image_tags_with_http_info(id, opts)
+      data
+    end
+
+    # List Tags for ContainerImage
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(TagsCollection, Fixnum, Hash)>] TagsCollection data, response status code and response headers
+    def list_container_image_tags_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_container_image_tags ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_container_image_tags"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_container_image_tags, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_image_tags, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_image_tags, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_container_image_tags, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/container_images/{id}/tags'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TagsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_container_image_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -788,6 +938,81 @@ module TopologicalInventoryApiClient
       return data, status_code, headers
     end
 
+    # List Tags for ContainerNode
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [TagsCollection]
+    def list_container_node_tags(id, opts = {})
+      data, _status_code, _headers = list_container_node_tags_with_http_info(id, opts)
+      data
+    end
+
+    # List Tags for ContainerNode
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(TagsCollection, Fixnum, Hash)>] TagsCollection data, response status code and response headers
+    def list_container_node_tags_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_container_node_tags ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_container_node_tags"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_container_node_tags, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_node_tags, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_node_tags, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_container_node_tags, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/container_nodes/{id}/tags'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TagsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_container_node_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List ContainerNodes
     # Returns an array of ContainerNode objects
     # @param [Hash] opts the optional parameters
@@ -928,6 +1153,81 @@ module TopologicalInventoryApiClient
       return data, status_code, headers
     end
 
+    # List ContainerResourceQuota for ContainerProject
+    # Returns an array of ContainerResourceQuota objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ContainerResourceQuotaCollection]
+    def list_container_project_container_resource_quota(id, opts = {})
+      data, _status_code, _headers = list_container_project_container_resource_quota_with_http_info(id, opts)
+      data
+    end
+
+    # List ContainerResourceQuota for ContainerProject
+    # Returns an array of ContainerResourceQuota objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ContainerResourceQuotaCollection, Fixnum, Hash)>] ContainerResourceQuotaCollection data, response status code and response headers
+    def list_container_project_container_resource_quota_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_container_project_container_resource_quota ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_container_project_container_resource_quota"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_container_project_container_resource_quota, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_project_container_resource_quota, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_project_container_resource_quota, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_container_project_container_resource_quota, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/container_projects/{id}/container_resource_quotas'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerResourceQuotaCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_container_project_container_resource_quota\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List ContainerTemplates for ContainerProject
     # Returns an array of ContainerTemplate objects
     # @param id ID of the resource
@@ -1003,6 +1303,81 @@ module TopologicalInventoryApiClient
       return data, status_code, headers
     end
 
+    # List Tags for ContainerProject
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [TagsCollection]
+    def list_container_project_tags(id, opts = {})
+      data, _status_code, _headers = list_container_project_tags_with_http_info(id, opts)
+      data
+    end
+
+    # List Tags for ContainerProject
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(TagsCollection, Fixnum, Hash)>] TagsCollection data, response status code and response headers
+    def list_container_project_tags_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_container_project_tags ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_container_project_tags"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_container_project_tags, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_project_tags, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_project_tags, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_container_project_tags, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/container_projects/{id}/tags'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TagsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_container_project_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List ContainerProjects
     # Returns an array of ContainerProject objects
     # @param [Hash] opts the optional parameters
@@ -1064,6 +1439,146 @@ module TopologicalInventoryApiClient
         :return_type => 'ContainerProjectsCollection')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#list_container_projects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List ContainerResourceQuota
+    # Returns an array of ContainerResourceQuota objects
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ContainerResourceQuotaCollection]
+    def list_container_resource_quota(opts = {})
+      data, _status_code, _headers = list_container_resource_quota_with_http_info(opts)
+      data
+    end
+
+    # List ContainerResourceQuota
+    # Returns an array of ContainerResourceQuota objects
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ContainerResourceQuotaCollection, Fixnum, Hash)>] ContainerResourceQuotaCollection data, response status code and response headers
+    def list_container_resource_quota_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_container_resource_quota ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_resource_quota, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_resource_quota, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_container_resource_quota, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/container_resource_quotas'
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerResourceQuotaCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_container_resource_quota\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Tags for ContainerTemplate
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [TagsCollection]
+    def list_container_template_tags(id, opts = {})
+      data, _status_code, _headers = list_container_template_tags_with_http_info(id, opts)
+      data
+    end
+
+    # List Tags for ContainerTemplate
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(TagsCollection, Fixnum, Hash)>] TagsCollection data, response status code and response headers
+    def list_container_template_tags_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_container_template_tags ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_container_template_tags"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_container_template_tags, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_template_tags, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_container_template_tags, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_container_template_tags, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/container_templates/{id}/tags'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TagsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_container_template_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -1744,6 +2259,81 @@ module TopologicalInventoryApiClient
         :return_type => 'ServicePlansCollection')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#list_service_offering_service_plans\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Tags for ServiceOffering
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [TagsCollection]
+    def list_service_offering_tags(id, opts = {})
+      data, _status_code, _headers = list_service_offering_tags_with_http_info(id, opts)
+      data
+    end
+
+    # List Tags for ServiceOffering
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(TagsCollection, Fixnum, Hash)>] TagsCollection data, response status code and response headers
+    def list_service_offering_tags_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_service_offering_tags ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_service_offering_tags"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_service_offering_tags, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_service_offering_tags, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_service_offering_tags, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_service_offering_tags, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/service_offerings/{id}/tags'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TagsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_service_offering_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -3358,6 +3948,531 @@ module TopologicalInventoryApiClient
       return data, status_code, headers
     end
 
+    # List ContainerGroups for Tag
+    # Returns an array of ContainerGroup objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ContainerGroupsCollection]
+    def list_tag_container_groups(id, opts = {})
+      data, _status_code, _headers = list_tag_container_groups_with_http_info(id, opts)
+      data
+    end
+
+    # List ContainerGroups for Tag
+    # Returns an array of ContainerGroup objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ContainerGroupsCollection, Fixnum, Hash)>] ContainerGroupsCollection data, response status code and response headers
+    def list_tag_container_groups_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_tag_container_groups ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_tag_container_groups"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_tag_container_groups, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_groups, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_groups, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_tag_container_groups, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/tags/{id}/container_groups'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerGroupsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_tag_container_groups\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List ContainerImages for Tag
+    # Returns an array of ContainerImage objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ContainerImagesCollection]
+    def list_tag_container_images(id, opts = {})
+      data, _status_code, _headers = list_tag_container_images_with_http_info(id, opts)
+      data
+    end
+
+    # List ContainerImages for Tag
+    # Returns an array of ContainerImage objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ContainerImagesCollection, Fixnum, Hash)>] ContainerImagesCollection data, response status code and response headers
+    def list_tag_container_images_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_tag_container_images ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_tag_container_images"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_tag_container_images, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_images, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_images, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_tag_container_images, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/tags/{id}/container_images'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerImagesCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_tag_container_images\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List ContainerNodes for Tag
+    # Returns an array of ContainerNode objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ContainerNodesCollection]
+    def list_tag_container_nodes(id, opts = {})
+      data, _status_code, _headers = list_tag_container_nodes_with_http_info(id, opts)
+      data
+    end
+
+    # List ContainerNodes for Tag
+    # Returns an array of ContainerNode objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ContainerNodesCollection, Fixnum, Hash)>] ContainerNodesCollection data, response status code and response headers
+    def list_tag_container_nodes_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_tag_container_nodes ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_tag_container_nodes"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_tag_container_nodes, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_nodes, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_nodes, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_tag_container_nodes, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/tags/{id}/container_nodes'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerNodesCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_tag_container_nodes\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List ContainerProjects for Tag
+    # Returns an array of ContainerProject objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ContainerProjectsCollection]
+    def list_tag_container_projects(id, opts = {})
+      data, _status_code, _headers = list_tag_container_projects_with_http_info(id, opts)
+      data
+    end
+
+    # List ContainerProjects for Tag
+    # Returns an array of ContainerProject objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ContainerProjectsCollection, Fixnum, Hash)>] ContainerProjectsCollection data, response status code and response headers
+    def list_tag_container_projects_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_tag_container_projects ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_tag_container_projects"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_tag_container_projects, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_projects, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_projects, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_tag_container_projects, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/tags/{id}/container_projects'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerProjectsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_tag_container_projects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List ContainerTemplates for Tag
+    # Returns an array of ContainerTemplate objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ContainerTemplatesCollection]
+    def list_tag_container_templates(id, opts = {})
+      data, _status_code, _headers = list_tag_container_templates_with_http_info(id, opts)
+      data
+    end
+
+    # List ContainerTemplates for Tag
+    # Returns an array of ContainerTemplate objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ContainerTemplatesCollection, Fixnum, Hash)>] ContainerTemplatesCollection data, response status code and response headers
+    def list_tag_container_templates_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_tag_container_templates ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_tag_container_templates"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_tag_container_templates, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_templates, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_container_templates, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_tag_container_templates, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/tags/{id}/container_templates'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerTemplatesCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_tag_container_templates\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List ServiceOfferings for Tag
+    # Returns an array of ServiceOffering objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [ServiceOfferingsCollection]
+    def list_tag_service_offerings(id, opts = {})
+      data, _status_code, _headers = list_tag_service_offerings_with_http_info(id, opts)
+      data
+    end
+
+    # List ServiceOfferings for Tag
+    # Returns an array of ServiceOffering objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(ServiceOfferingsCollection, Fixnum, Hash)>] ServiceOfferingsCollection data, response status code and response headers
+    def list_tag_service_offerings_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_tag_service_offerings ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_tag_service_offerings"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_tag_service_offerings, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_service_offerings, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_service_offerings, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_tag_service_offerings, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/tags/{id}/service_offerings'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ServiceOfferingsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_tag_service_offerings\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Vms for Tag
+    # Returns an array of Vm objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [VmsCollection]
+    def list_tag_vms(id, opts = {})
+      data, _status_code, _headers = list_tag_vms_with_http_info(id, opts)
+      data
+    end
+
+    # List Vms for Tag
+    # Returns an array of Vm objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(VmsCollection, Fixnum, Hash)>] VmsCollection data, response status code and response headers
+    def list_tag_vms_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_tag_vms ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_tag_vms"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_tag_vms, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_vms, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_tag_vms, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_tag_vms, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/tags/{id}/vms'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'VmsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_tag_vms\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List Tags
     # Returns an array of Tag objects
     # @param [Hash] opts the optional parameters
@@ -3484,6 +4599,81 @@ module TopologicalInventoryApiClient
         :return_type => 'TasksCollection')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#list_tasks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # List Tags for Vm
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page. (default to 100)
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set. (default to 0)
+    # @return [TagsCollection]
+    def list_vm_tags(id, opts = {})
+      data, _status_code, _headers = list_vm_tags_with_http_info(id, opts)
+      data
+    end
+
+    # List Tags for Vm
+    # Returns an array of Tag objects
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit The numbers of items to return per page.
+    # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+    # @return [Array<(TagsCollection, Fixnum, Hash)>] TagsCollection data, response status code and response headers
+    def list_vm_tags_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.list_vm_tags ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.list_vm_tags"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.list_vm_tags, must conform to the pattern /^\d+$/."
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 1000
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_vm_tags, must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.list_vm_tags, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling DefaultApi.list_vm_tags, must be greater than or equal to 0.'
+      end
+
+      # resource path
+      local_var_path = '/vms/{id}/tags'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'TagsCollection')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#list_vm_tags\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -4301,6 +5491,63 @@ module TopologicalInventoryApiClient
         :return_type => 'ContainerProject')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: DefaultApi#show_container_project\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Show an existing ContainerResourceQuota
+    # Returns a ContainerResourceQuota object
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @return [ContainerResourceQuota]
+    def show_container_resource_quota(id, opts = {})
+      data, _status_code, _headers = show_container_resource_quota_with_http_info(id, opts)
+      data
+    end
+
+    # Show an existing ContainerResourceQuota
+    # Returns a ContainerResourceQuota object
+    # @param id ID of the resource
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ContainerResourceQuota, Fixnum, Hash)>] ContainerResourceQuota data, response status code and response headers
+    def show_container_resource_quota_with_http_info(id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: DefaultApi.show_container_resource_quota ...'
+      end
+      # verify the required parameter 'id' is set
+      if @api_client.config.client_side_validation && id.nil?
+        fail ArgumentError, "Missing the required parameter 'id' when calling DefaultApi.show_container_resource_quota"
+      end
+      if @api_client.config.client_side_validation && id !~ Regexp.new(/^\d+$/)
+        fail ArgumentError, "invalid value for 'id' when calling DefaultApi.show_container_resource_quota, must conform to the pattern /^\d+$/."
+      end
+
+      # resource path
+      local_var_path = '/container_resource_quotas/{id}'.sub('{' + 'id' + '}', id.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['UserSecurity']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ContainerResourceQuota')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: DefaultApi#show_container_resource_quota\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

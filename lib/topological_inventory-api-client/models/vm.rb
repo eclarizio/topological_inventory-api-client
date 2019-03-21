@@ -29,12 +29,16 @@ module TopologicalInventoryApiClient
     # ID of the resource
     attr_accessor :flavor_id
 
+    attr_accessor :host_inventory_uuid
+
     attr_accessor :hostname
 
     # ID of the resource
     attr_accessor :id
 
     attr_accessor :last_seen_at
+
+    attr_accessor :mac_addresses
 
     # Total RAM in bytes
     attr_accessor :memory
@@ -55,8 +59,6 @@ module TopologicalInventoryApiClient
 
     attr_accessor :source_ref
 
-    attr_accessor :taggings
-
     # Cross-Source Unique Reference
     attr_accessor :uid_ems
 
@@ -71,9 +73,11 @@ module TopologicalInventoryApiClient
         :'description' => :'description',
         :'extra' => :'extra',
         :'flavor_id' => :'flavor_id',
+        :'host_inventory_uuid' => :'host_inventory_uuid',
         :'hostname' => :'hostname',
         :'id' => :'id',
         :'last_seen_at' => :'last_seen_at',
+        :'mac_addresses' => :'mac_addresses',
         :'memory' => :'memory',
         :'name' => :'name',
         :'orchestration_stack_id' => :'orchestration_stack_id',
@@ -82,7 +86,6 @@ module TopologicalInventoryApiClient
         :'source_deleted_at' => :'source_deleted_at',
         :'source_id' => :'source_id',
         :'source_ref' => :'source_ref',
-        :'taggings' => :'taggings',
         :'uid_ems' => :'uid_ems',
         :'updated_at' => :'updated_at'
       }
@@ -97,9 +100,11 @@ module TopologicalInventoryApiClient
         :'description' => :'String',
         :'extra' => :'String',
         :'flavor_id' => :'String',
+        :'host_inventory_uuid' => :'String',
         :'hostname' => :'String',
         :'id' => :'String',
         :'last_seen_at' => :'DateTime',
+        :'mac_addresses' => :'Array<String>',
         :'memory' => :'Integer',
         :'name' => :'String',
         :'orchestration_stack_id' => :'String',
@@ -108,7 +113,6 @@ module TopologicalInventoryApiClient
         :'source_deleted_at' => :'DateTime',
         :'source_id' => :'String',
         :'source_ref' => :'String',
-        :'taggings' => :'Array<Tagging>',
         :'uid_ems' => :'String',
         :'updated_at' => :'DateTime'
       }
@@ -146,6 +150,10 @@ module TopologicalInventoryApiClient
         self.flavor_id = attributes[:'flavor_id']
       end
 
+      if attributes.has_key?(:'host_inventory_uuid')
+        self.host_inventory_uuid = attributes[:'host_inventory_uuid']
+      end
+
       if attributes.has_key?(:'hostname')
         self.hostname = attributes[:'hostname']
       end
@@ -156,6 +164,12 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'last_seen_at')
         self.last_seen_at = attributes[:'last_seen_at']
+      end
+
+      if attributes.has_key?(:'mac_addresses')
+        if (value = attributes[:'mac_addresses']).is_a?(Array)
+          self.mac_addresses = value
+        end
       end
 
       if attributes.has_key?(:'memory')
@@ -188,12 +202,6 @@ module TopologicalInventoryApiClient
 
       if attributes.has_key?(:'source_ref')
         self.source_ref = attributes[:'source_ref']
-      end
-
-      if attributes.has_key?(:'taggings')
-        if (value = attributes[:'taggings']).is_a?(Array)
-          self.taggings = value
-        end
       end
 
       if attributes.has_key?(:'uid_ems')
@@ -289,9 +297,11 @@ module TopologicalInventoryApiClient
           description == o.description &&
           extra == o.extra &&
           flavor_id == o.flavor_id &&
+          host_inventory_uuid == o.host_inventory_uuid &&
           hostname == o.hostname &&
           id == o.id &&
           last_seen_at == o.last_seen_at &&
+          mac_addresses == o.mac_addresses &&
           memory == o.memory &&
           name == o.name &&
           orchestration_stack_id == o.orchestration_stack_id &&
@@ -300,7 +310,6 @@ module TopologicalInventoryApiClient
           source_deleted_at == o.source_deleted_at &&
           source_id == o.source_id &&
           source_ref == o.source_ref &&
-          taggings == o.taggings &&
           uid_ems == o.uid_ems &&
           updated_at == o.updated_at
     end
@@ -314,7 +323,7 @@ module TopologicalInventoryApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [archived_at, cpus, created_at, description, extra, flavor_id, hostname, id, last_seen_at, memory, name, orchestration_stack_id, power_state, source_created_at, source_deleted_at, source_id, source_ref, taggings, uid_ems, updated_at].hash
+      [archived_at, cpus, created_at, description, extra, flavor_id, host_inventory_uuid, hostname, id, last_seen_at, mac_addresses, memory, name, orchestration_stack_id, power_state, source_created_at, source_deleted_at, source_id, source_ref, uid_ems, updated_at].hash
     end
 
     # Builds the object from hash
