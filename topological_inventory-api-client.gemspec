@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.name        = "topological_inventory-api-client"
   s.version     = TopologicalInventoryApiClient::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["manageiq_authors"]
+  s.authors     = ["ManageIQ Authors"]
   s.email       = ["you@your-company.com"]
   s.homepage    = "https://github.com/ManageIQ/topological_inventory-api-client-ruby"
   s.summary     = "Topological Inventory Ruby Gem"
