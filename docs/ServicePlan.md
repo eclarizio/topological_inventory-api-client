@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **archived_at** | **DateTime** |  | [optional] 
-**create_json_schema** | **String** |  | [optional] 
+**create_json_schema** | [**Object**](.md) |  | [optional] 
 **created_at** | **DateTime** |  | [optional] 
 **description** | **String** |  | [optional] 
 **extra** | **String** | Extra information about this object in JSON format | [optional] 

@@ -153,6 +153,20 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for list_container_group_tags
+  # List Tags for ContainerGroup
+  # Returns an array of Tag objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [TagsCollection]
+  describe 'list_container_group_tags test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_container_groups
   # List ContainerGroups
   # Returns an array of ContainerGroup objects
@@ -161,6 +175,20 @@ describe 'DefaultApi' do
   # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
   # @return [ContainerGroupsCollection]
   describe 'list_container_groups test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_container_image_tags
+  # List Tags for ContainerImage
+  # Returns an array of Tag objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [TagsCollection]
+  describe 'list_container_image_tags test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -193,6 +221,20 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for list_container_node_tags
+  # List Tags for ContainerNode
+  # Returns an array of Tag objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [TagsCollection]
+  describe 'list_container_node_tags test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_container_nodes
   # List ContainerNodes
   # Returns an array of ContainerNode objects
@@ -220,6 +262,20 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for list_container_project_container_resource_quota
+  # List ContainerResourceQuota for ContainerProject
+  # Returns an array of ContainerResourceQuota objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ContainerResourceQuotaCollection]
+  describe 'list_container_project_container_resource_quota test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_container_project_container_templates
   # List ContainerTemplates for ContainerProject
   # Returns an array of ContainerTemplate objects
@@ -234,6 +290,20 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for list_container_project_tags
+  # List Tags for ContainerProject
+  # Returns an array of Tag objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [TagsCollection]
+  describe 'list_container_project_tags test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_container_projects
   # List ContainerProjects
   # Returns an array of ContainerProject objects
@@ -242,6 +312,33 @@ describe 'DefaultApi' do
   # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
   # @return [ContainerProjectsCollection]
   describe 'list_container_projects test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_container_resource_quota
+  # List ContainerResourceQuota
+  # Returns an array of ContainerResourceQuota objects
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ContainerResourceQuotaCollection]
+  describe 'list_container_resource_quota test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_container_template_tags
+  # List Tags for ContainerTemplate
+  # Returns an array of Tag objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [TagsCollection]
+  describe 'list_container_template_tags test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -375,6 +472,20 @@ describe 'DefaultApi' do
   # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
   # @return [ServicePlansCollection]
   describe 'list_service_offering_service_plans test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_service_offering_tags
+  # List Tags for ServiceOffering
+  # Returns an array of Tag objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [TagsCollection]
+  describe 'list_service_offering_tags test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -684,6 +795,104 @@ describe 'DefaultApi' do
     end
   end
 
+  # unit tests for list_tag_container_groups
+  # List ContainerGroups for Tag
+  # Returns an array of ContainerGroup objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ContainerGroupsCollection]
+  describe 'list_tag_container_groups test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_tag_container_images
+  # List ContainerImages for Tag
+  # Returns an array of ContainerImage objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ContainerImagesCollection]
+  describe 'list_tag_container_images test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_tag_container_nodes
+  # List ContainerNodes for Tag
+  # Returns an array of ContainerNode objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ContainerNodesCollection]
+  describe 'list_tag_container_nodes test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_tag_container_projects
+  # List ContainerProjects for Tag
+  # Returns an array of ContainerProject objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ContainerProjectsCollection]
+  describe 'list_tag_container_projects test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_tag_container_templates
+  # List ContainerTemplates for Tag
+  # Returns an array of ContainerTemplate objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ContainerTemplatesCollection]
+  describe 'list_tag_container_templates test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_tag_service_offerings
+  # List ServiceOfferings for Tag
+  # Returns an array of ServiceOffering objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [ServiceOfferingsCollection]
+  describe 'list_tag_service_offerings test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_tag_vms
+  # List Vms for Tag
+  # Returns an array of Vm objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [VmsCollection]
+  describe 'list_tag_vms test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for list_tags
   # List Tags
   # Returns an array of Tag objects
@@ -705,6 +914,20 @@ describe 'DefaultApi' do
   # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
   # @return [TasksCollection]
   describe 'list_tasks test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for list_vm_tags
+  # List Tags for Vm
+  # Returns an array of Tag objects
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :limit The numbers of items to return per page.
+  # @option opts [Integer] :offset The number of items to skip before starting to collect the result set.
+  # @return [TagsCollection]
+  describe 'list_vm_tags test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
@@ -870,6 +1093,18 @@ describe 'DefaultApi' do
   # @param [Hash] opts the optional parameters
   # @return [ContainerProject]
   describe 'show_container_project test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for show_container_resource_quota
+  # Show an existing ContainerResourceQuota
+  # Returns a ContainerResourceQuota object
+  # @param id ID of the resource
+  # @param [Hash] opts the optional parameters
+  # @return [ContainerResourceQuota]
+  describe 'show_container_resource_quota test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

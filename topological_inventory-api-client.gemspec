@@ -19,12 +19,12 @@ Gem::Specification.new do |s|
   s.name        = "topological_inventory-api-client"
   s.version     = TopologicalInventoryApiClient::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["user@redhat.com"]
+  s.authors     = ["ManageIQ Authors"]
   s.email       = ["you@your-company.com"]
-  s.homepage    = "http://www.redhat.com"
+  s.homepage    = "https://github.com/ManageIQ/topological_inventory-api-client-ruby"
   s.summary     = "Topological Inventory Ruby Gem"
-  s.description = "Topological Inventory"
-  s.license     = "Unlicense"
+  s.description = "Ruby client gem to connect to ManageIQ Topology Service"
+  s.license     = 'Apache-2.0'
   s.required_ruby_version = ">= 1.9"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
